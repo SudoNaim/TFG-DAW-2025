@@ -48,3 +48,5 @@ frontend/
     ├── footer.html
     ├── navigation-bar.html
     └── ...
+
+    SIMULADOR MOVIL EXTENSIÓN CHROME
