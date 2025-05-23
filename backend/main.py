@@ -8,4 +8,4 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-print("hola")
+print("hola mundo")
