@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23ff9800' d='M12 2L2 22H22L12 2Z'/></svg>">
+    <link rel="stylesheet" href="../styles/landing.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Likely</title>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24">
+                    <path d="M12 2L2 22H22L12 2Z"/>
+                </svg>
+                <span>Likely</span>
+            </a>
+            <nav class="nav">
+                <a href="#sobre-nosotros" class="nav-btn-outline">Sobre nosotros</a>
+                <a href="login.html" class="nav-btn-solid">Inicia Sesión</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section section-bg-darker">
+        <div class="container grid-container grid-cols-2">
+            <div class="text-content">
+                <h1>La mejor app para dar a conocer tus gustos a tus amigos</h1>
+                </div>
+            <div class="posters-gallery">
+                <div class="gallery-image1" title="Poster Seven"></div>
+                <div class="gallery-image2" title="Poster Elden Ring">></div>
+                <div class="gallery-image3" title="Poster Better Call Saul"></div>
+                <div class="gallery-image4" title="Poster Serverance"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-bg-black emojis-section">
+        <div class="container grid-container grid-cols-2">
+            <div class="emojis-container">
+                <span class="emoji">🍿</span>
+                <span class="emoji">🎮</span>
+                <span class="emoji">📖</span>
+                <span class="emoji">🎵</span>
+            </div>
+            <div class="text-content">
+                <h2>¡Guarda y comparte las valoraciones de todo tipo de contenido!</h2>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre-nosotros" class="section section-bg-darker about-section">
+        <div class="container">
+            <h2>Sobre Likely</h2>
+            <p>
+                En Likely, creemos que compartir tus pasiones es una forma increíble de conectar. Nuestra plataforma está diseñada para que descubrir y hablar sobre tus películas, series, música y juegos favoritos sea más fácil y divertido que nunca.
+            </p>
+            <p>
+                Somos un equipo pequeño pero apasionado, construyendo la herramienta que siempre quisimos para nosotros y nuestros amigos. ¡Únete a la comunidad y empieza a compartir!
+            </p>
+            <a href="register.html" class="btn-cta">Regístrate Gratis</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> Likely. Todos los derechos reservados.</p>
+            <p>Hecho con ❤️ por Naim y Adam</p>
+        </div>
+    </footer>
+
+    <script>
+        // Script para el año actual en el footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>

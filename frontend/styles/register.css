@@ -1,0 +1,135 @@
+        /* Estilos Generales */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000000; /* Fondo negro */
+            color: #E0E0E0;
+            display: flex;
+            align-items: center; /* Centra verticalmente */
+            justify-content: center; /* Centra horizontalmente */
+            min-height: 100vh;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+        /* Contenedor del Registro */
+        .register-container {
+            background-color: #1E1E1E; /* Fondo oscuro para la tarjeta */
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        /* Estilos para el enlace del logo */
+        .logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo-icon {
+            width: 28px;
+            height: 28px;
+            fill: #ff9800;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: bold;
+            color: #FFFFFF;
+        }
+
+        .register-container h1 {
+            color: #FFFFFF;
+            font-size: 24px; /* "Crear Cuenta" */
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        /* Campos del Formulario */
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: #2C2C2C; /* Fondo oscuro para inputs */
+            border: 1px solid #444444; /* Borde sutil */
+            border-radius: 5px;
+            color: #E0E0E0;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .form-group input::placeholder {
+            color: #888888;
+        }
+
+        /* Botón de Registrarse */
+        .btn-register {
+            background-color: #ff9800; /* Mismo color que el botón de login */
+            color: #FFFFFF;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-register:hover {
+            background-color: #e98c00;
+        }
+
+        /* Enlace de Iniciar Sesión */
+        .login-link {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #AAAAAA;
+        }
+
+        .login-link a {
+            color: #3B82F6; /* Azul para el enlace */
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .login-link a:hover {
+            color: #2563EB;
+        }
+
+        /* Responsividad básica */
+        @media (max-width: 480px) {
+            .register-container {
+                padding: 25px 20px;
+            }
+            .logo-icon {
+                width: 24px;
+                height: 24px;
+            }
+            .logo-text {
+                font-size: 24px;
+            }
+            .register-container h1 {
+                font-size: 20px;
+            }
+        }
