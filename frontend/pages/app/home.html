@@ -1,1 +1,20 @@
-Home de la app
+<!DOCTYPE html>
+<html lang="es">
+<!--
+<script>
+  // 1) Al cargar, verifica si hay usuario en localStorage
+  const stored = localStorage.getItem('currentUser');
+  if (!stored) {
+    // 2) Si no existe, redirige a login
+    window.location.href = 'login.html';
+  } else {
+    // 3) Si existe, parsea y muestra info
+    const user = JSON.parse(stored);
+    document.getElementById('welcome').textContent = `Bienvenido, ${user.username}!`;
+  }
+</script>
+-->
+<body>
+    <h1 id="welcome"></h1>
+<!-- aquí irán enlaces a ver perfil, crear reseñas, etc. -->
+</body>

@@ -27,5 +27,14 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 # autoflush=false significa que no envía automáticamente cambios pendientes hasta que se haga un db.commit()
 # bind=engine indica que la sesión se conecta con el engine que hemos creado anteriormente
 
-Base = declarative_base
+Base = declarative_base()
 # Base es la clase base que se usará para representar las tablas de la base de datos
+
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+

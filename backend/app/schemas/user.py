@@ -15,6 +15,11 @@ class UserOut(BaseModel):
 #   fecha_registro: datetime
 #   perfil_publico: bool
 # Datos que se esperan al recoger información de un usuario, como por ejemplo si un usuario normal quiere ver el perfil de otro
+    class Config:
+        from_attributes = True
 
-class Config:
-    orm_mode = True
+class UserLogin(BaseModel):
+    email: EmailStr
+    password: str
+
+    
