@@ -1,0 +1,185 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: black; /* Color de fondo del cuerpo */
+}
+
+/* Contenedor principal con flexbox */
+.contenedor {
+    display: flex;
+}
+
+/* BARRA LATERALL ESTILO */
+/* Sidebar fijo */
+.barra-lateral {
+    width: 250px; /* Ancho fijo para el sidebar */
+    min-height: 100vh; /* Altura del 100% de la ventana */
+    background-color: #343434; /* Color de fondo del sidebar */
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Estilos para el logo de la aplicación */
+.app-logo {
+    display: flex; /* Para alinear el SVG y el texto */
+    align-items: center; /* Centra verticalmente los elementos */
+    text-decoration: none; /* Quita el subrayado del enlace */
+    color: white; /* Color del texto del logo */
+    margin-bottom: 30px; /* Espacio debajo del logo */
+}
+
+.app-logo svg {
+    width: 32px; /* Tamaño ajustado para el icono del logo */
+    height: 32px;
+    margin-right: 10px; /* Espacio entre el icono y el texto */
+}
+
+.app-logo span {
+    font-size: 20px; /* Tamaño del texto del logo */
+    font-weight: bold;
+}
+
+/* Estilo de la lista del menú */
+.barra-lateral ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.barra-lateral ul li {
+    margin-bottom: 10px; /* Reducido un poco para mejor ajuste con padding */
+}
+
+.barra-lateral ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: block; /* Para que el padding y border-radius funcionen bien */
+    padding: 10px 15px; /* Padding vertical y horizontal para dar espacio al fondo */
+    border-radius: 8px; /* ¡Aquí está la magia para redondear! */
+    transition: background-color 0.2s ease-in-out, padding-left 0.2s ease-in-out; /* Transición suave */
+}
+
+.barra-lateral ul li a:hover {
+    background-color: #3b3b3b;
+}
+
+/* Contenido principal con margen para no quedar debajo del sidebar */
+.contenido {
+    padding: 30px;
+    flex: 1; /* El contenido ocupa el espacio restante */
+    background-color: black; /* Color de fondo del contenido */
+}
+
+.contenido h1 {
+    color: white;
+}
+
+.contenido p {
+    color: white;
+    line-height: 1.6;
+}
+
+/* --- Estilos MÍNIMOS para el contenido de INICIO --- */
+
+/* Estilos para el área de contenido (ya los tienes, solo asegúrate que el color de texto sea visible) */
+.contenido h2 { /* Estilo para el nuevo h2 "Mis Publicaciones" */
+    color: white;
+    margin-top: 0; /* Quitar margen superior por defecto del h2 si es necesario */
+    border-bottom: 1px solid #555; /* Línea separadora simple */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.filtros-inicio {
+    margin-bottom: 20px;
+}
+
+.filtros-inicio button {
+    background-color: #555; /* Gris oscuro */
+    color: white;
+    border: 1px solid #777;
+    padding: 8px 12px;
+    margin-right: 8px;
+    margin-bottom: 8px; /* Para botones que pasan a la siguiente línea */
+    cursor: pointer;
+    border-radius: 4px; /* Bordes ligeramente redondeados */
+}
+
+.filtros-inicio button:hover {
+    background-color: #666;
+}
+
+.filtros-inicio button.activo { /* Estilo para el botón de filtro activo */
+    background-color: #ff9800; /* Naranja, para destacar */
+    color: #333;
+    font-weight: bold;
+}
+
+.publicaciones-inicio {
+    display: flex; /* Para que las tarjetas se pongan una al lado de la otra */
+    flex-wrap: wrap; /* Para que pasen a la siguiente línea si no caben */
+    gap: 15px; /* Espacio entre tarjetas */
+    color: white; /* Asegurar que el texto dentro sea visible */
+}
+
+.tarjeta-publicacion-inicio {
+    background-color: #2e2e2e; /* Fondo de tarjeta un poco más claro que el sidebar */
+    border: 1px solid #444; /* Borde sutil */
+    padding: 15px;
+    border-radius: 5px; /* Bordes redondeados para la tarjeta */
+    width: 220px; /* Ancho fijo para cada tarjeta, ajusta si es necesario */
+    box-sizing: border-box; /* Para que el padding no aumente el ancho total */
+    display: flex;
+    flex-direction: column; /* Elementos internos apilados verticalmente */
+}
+
+.tarjeta-publicacion-inicio img {
+    width: 100%; /* La imagen ocupa todo el ancho de la tarjeta */
+    height: auto; /* Altura automática para mantener la proporción */
+    max-height: 150px; /* Limitar altura máxima de la imagen */
+    object-fit: cover; /* Cubre el espacio manteniendo la proporción */
+    margin-bottom: 10px;
+    border-radius: 3px; /* Bordes redondeados para la imagen */
+    background-color: #444; /* Placeholder si la imagen no carga */
+}
+
+.tarjeta-publicacion-inicio h3 { /* Título de la publicación */
+    font-size: 1.1em;
+    color: #ff9800; /* Naranja para el título */
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.tarjeta-publicacion-inicio p {
+    font-size: 0.9em;
+    margin-bottom: 8px;
+    color: #ddd; /* Texto de la tarjeta un poco más claro */
+    line-height: 1.4;
+}
+
+.tarjeta-publicacion-inicio .categoria { /* Estilo para el span de categoría */
+    font-size: 0.8em;
+    font-style: italic;
+    color: #aaa;
+    margin-top: auto; /* Empuja la categoría al final de la tarjeta si hay espacio */
+    align-self: flex-end; /* Alinea a la derecha */
+}
+
+.boton-nueva-publicacion {
+    display: block; /* Que ocupe su propia línea */
+    margin-top: 30px; /* Espacio arriba del botón */
+    padding: 10px 15px;
+    background-color: #ff9800; /* Naranja */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.boton-nueva-publicacion:hover {
+    background-color: #e68a00; /* Naranja más oscuro */
+}
