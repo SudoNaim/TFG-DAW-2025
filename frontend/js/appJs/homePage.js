@@ -126,11 +126,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Lógica para el botón de "Nueva Publicación" (acción de ejemplo)
-    if (btnNuevaPublicacion) {
-        btnNuevaPublicacion.addEventListener('click', function() {
-            alert('Aquí iría la lógica para crear una nueva publicación (ej. mostrar un formulario).');
-        });
-    }
+    // if (btnNuevaPublicacion) {
+    //     btnNuevaPublicacion.addEventListener('click', function() {
+    //         alert('Aquí iría la lógica para crear una nueva publicación (ej. mostrar un formulario).');
+    //     });
+    // }
 
     // Al cargar la página, mostrar todas las publicaciones por defecto
     if (listaPublicacionesContenedor) { // Solo si existe el contenedor

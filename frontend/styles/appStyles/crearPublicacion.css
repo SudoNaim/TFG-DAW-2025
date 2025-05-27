@@ -1,0 +1,184 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: black; /* Color de fondo del cuerpo */
+}
+
+/* Contenedor principal con flexbox */
+.contenedor {
+    display: flex;
+}
+
+/* BARRA LATERALL ESTILO */
+/* Sidebar fijo */
+.barra-lateral {
+    width: 250px; /* Ancho fijo para el sidebar */
+    min-height: 100vh; /* Altura del 100% de la ventana */
+    background-color: #343434; /* Color de fondo del sidebar */
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Estilos para el logo de la aplicación */
+.app-logo {
+    display: flex; /* Para alinear el SVG y el texto */
+    align-items: center; /* Centra verticalmente los elementos */
+    text-decoration: none; /* Quita el subrayado del enlace */
+    color: white; /* Color del texto del logo */
+    margin-bottom: 30px; /* Espacio debajo del logo */
+}
+
+.app-logo svg {
+    width: 32px; /* Tamaño ajustado para el icono del logo */
+    height: 32px;
+    margin-right: 10px; /* Espacio entre el icono y el texto */
+}
+
+.app-logo span {
+    font-size: 20px; /* Tamaño del texto del logo */
+    font-weight: bold;
+}
+
+/* Estilo de la lista del menú */
+.barra-lateral ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.barra-lateral ul li {
+    margin-bottom: 10px; /* Reducido un poco para mejor ajuste con padding */
+}
+
+.barra-lateral ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: block; /* Para que el padding y border-radius funcionen bien */
+    padding: 10px 15px; /* Padding vertical y horizontal para dar espacio al fondo */
+    border-radius: 8px; /* ¡Aquí está la magia para redondear! */
+    transition: background-color 0.2s ease-in-out, padding-left 0.2s ease-in-out; /* Transición suave */
+}
+
+.barra-lateral ul li a:hover {
+    background-color: #3b3b3b;
+}
+/* FIN BARRA LATERAL ESTILO */
+/* --- ESTILOS PARA LA PÁGINA DE CREACIÓN DE PUBLICACIÓN (dentro de .contenido) --- */
+
+/* Estilo para el título "Crear Nueva Valoración" 
+   Puedes reutilizar el estilo de .contenido h2 si ya lo tienes definido y te gusta
+*/
+
+.contenido {
+    padding: 30px 30px 30px 50px; /* Arriba, Derecha, Abajo, Izquierda (aumentado a 50px) */
+    flex: 1; 
+    background-color: black; 
+}
+
+.contenido h2.titulo-creacion { /* Clase específica si quieres diferenciarlo */
+    color: white;
+    font-size: 1.8em;
+    margin-top: 0;
+    border-bottom: 1px solid #555;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    text-align: left; /* O 'center' si lo prefieres como en Configuración */
+}
+
+.formulario-creacion {
+    max-width: 700px; /* Limita el ancho del formulario */
+    margin: 0 auto; /* Centra el formulario si el .contenido es más ancho */
+    color: #e0e0e0; /* Color de texto general para el formulario */
+}
+
+.campo-formulario {
+    margin-bottom: 25px; /* Espacio entre campos */
+}
+
+.campo-formulario label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 0.95em;
+}
+
+.campo-formulario label .requerido {
+    color: #ff9800; /* Naranja para el asterisco */
+    margin-left: 4px;
+}
+
+.campo-formulario input[type="text"],
+.campo-formulario input[type="url"],
+.campo-formulario select,
+.campo-formulario textarea {
+    width: 100%;
+    padding: 10px 12px;
+    background-color: #2c2c2c; /* Fondo oscuro para inputs */
+    color: #e0e0e0; /* Texto claro */
+    border: 1px solid #555; /* Borde sutil */
+    border-radius: 4px;
+    box-sizing: border-box; /* Para que el padding no afecte el ancho total */
+    font-size: 1em;
+    font-family: Arial, sans-serif; /* Heredar o definir fuente */
+}
+
+.campo-formulario input::placeholder,
+.campo-formulario textarea::placeholder {
+    color: #888; /* Color del placeholder */
+}
+
+.campo-formulario textarea {
+    resize: vertical; /* Permitir redimensionar solo verticalmente */
+    min-height: 80px;
+}
+
+.ayuda-texto {
+    font-size: 0.8em;
+    color: #aaa;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.acciones-formulario {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #444; /* Línea separadora antes de los botones */
+    display: flex;
+    justify-content: flex-end; /* Alinea botones a la derecha */
+    gap: 15px; /* Espacio entre botones */
+}
+
+.boton-primario,
+.boton-secundario {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    text-decoration: none; /* Para el enlace de cancelar */
+    display: inline-block; /* Para que el padding funcione en el enlace */
+    text-align: center;
+}
+
+.boton-primario {
+    background-color: #ff9800; /* Naranja */
+    color: white;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.boton-primario:hover {
+    background-color: #e68a00; /* Naranja más oscuro */
+}
+
+.boton-secundario {
+    background-color: #555; /* Gris oscuro */
+    color: white;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.boton-secundario:hover {
+    background-color: #666;
+}

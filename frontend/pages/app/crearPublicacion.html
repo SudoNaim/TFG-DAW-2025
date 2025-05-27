@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Likely</title>
+    <link rel="stylesheet" href="../../styles/appStyles/crearPublicacion.css" />
+</head>
+
+<body>
+    <div class="contenedor">
+
+        <div class="barra-lateral">
+            <a href="#" class="app-logo">
+                <!-- REVISAR
+                El svg nose como funciona en el html, se podría hacer con una imagen. -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#ff9800" d="M12 2L2 22H22L12 2Z" />
+                </svg>
+                <span>Likely</span>
+            </a>
+
+            <ul>
+                <li><a href="homePage.html">Inicio</a></li>
+                <li><a href="#">Perfil</a></li>
+                <li><a href="#">Amigos</a></li>
+                <li><a href="configPage.html">Configuración</a></li>
+                <li><a href="#">Cerrar sesión</a></li>
+            </ul>
+        </div>
+
+        <div class="contenido">
+            <h2>Crear Nueva Valoración</h2>
+
+            <form class="formulario-creacion" id="formularioCrearPublicacion">
+
+                <div class="campo-formulario">
+                    <label for="tituloPublicacion">Título<span class="requerido">*</span></label>
+                    <input type="text" id="tituloPublicacion" name="titulo" required>
+                    <p class="ayuda-texto">El nombre de la película, serie, libro, etc.</p>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="urlImagenPublicacion">URL de la Imagen (Opcional)</label>
+                    <input type="url" id="urlImagenPublicacion" name="urlImagen">
+                    <p class="ayuda-texto">Pega aquí la URL de una imagen descriptiva.</p>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="valoracionPublicacion">Valoración<span class="requerido">*</span></label>
+                    <input type="text" id="valoracionPublicacion" name="valoracion"
+                        placeholder="Ej: 8/10, Muy Buena, ★★★★☆" required>
+                    <p class="ayuda-texto">Tu puntuación o valoración general.</p>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="categoriaPublicacion">Categoría<span class="requerido">*</span></label>
+                    <select id="categoriaPublicacion" name="categoria" required>
+                        <option value="" disabled selected>Selecciona una categoría...</option>
+                        <option value="pelicula">Película</option>
+                        <option value="serie">Serie</option>
+                        <option value="musica">Música</option>
+                        <option value="libro">Libro</option>
+                        <option value="videojuego">Videojuego</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="resenaPublicacion">Reseña (Opcional)</label>
+                    <textarea id="resenaPublicacion" name="resena" rows="5"></textarea>
+                    <p class="ayuda-texto">Tus comentarios, opiniones o notas.</p>
+                </div>
+
+                <div class="acciones-formulario">
+                    <button type="submit" class="boton-primario">Guardar Publicación</button>
+                    <a href="#" class="boton-secundario" id="botonCancelarCreacion">Cancelar</a>
+                </div>
+
+            </form>
+
+        </div>
+
+        <script src="../../js/appJs/crearPublicacion.js"></script>
+
+</html>
