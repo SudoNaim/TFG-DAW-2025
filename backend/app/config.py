@@ -30,7 +30,6 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 # Base es la clase base que se usará para representar las tablas de la base de datos
 
-
 def get_db():
     db = SessionLocal()
     try:
