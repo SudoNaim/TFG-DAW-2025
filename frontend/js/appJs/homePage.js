@@ -1,142 +1,134 @@
-// Esperar a que el DOM esté completamente cargado
-document.addEventListener('DOMContentLoaded', function () {
 
-    const listaPublicacionesContenedor = document.getElementById('listaPublicaciones');
-    const botonesFiltro = document.querySelectorAll('.filtros-inicio button');
-    const btnNuevaPublicacion = document.getElementById('btnNuevaPublicacion');
+        // homePage.js (tu script actual, no se modifica para este cambio visual)
+        document.addEventListener('DOMContentLoaded', function () {
 
-    // DATOS DE EJEMPLO (simulando lo que vendría de tu API)
-    const todasLasPublicaciones = [
-        {
-            id: 1,
-            urlImagen: 'https://placehold.co/200x150/ff9800/333?text=Peli+1',
-            titulo: 'Peliculón Increíble',
-            valoracion: '9.5/10',
-            categoria: 'pelicula',
-            resena: 'Muy buena, la recomiendo mucho. Buenos efectos y trama.'
-        },
-        {
-            id: 2,
-            urlImagen: 'https://placehold.co/200x150/4CAF50/fff?text=Serie+TOP',
-            titulo: 'Serie para Maratonear',
-            valoracion: '10/10',
-            categoria: 'serie',
-            resena: 'Engancha desde el primer capítulo. ¡No te la pierdas!'
-        },
-        {
-            id: 3,
-            urlImagen: 'https://placehold.co/200x150/2196F3/fff?text=Música+Relax',
-            titulo: 'Disco para Relajarse',
-            valoracion: '8/10',
-            categoria: 'musica',
-            resena: 'Perfecto para desconectar después de un largo día.'
-        },
-        {
-            id: 4,
-            urlImagen: 'https://placehold.co/200x150/00BCD4/fff?text=Otra+Peli',
-            titulo: 'Película de Acción',
-            valoracion: '7/10',
-            categoria: 'pelicula',
-            resena: 'Mucha acción y explosiones. Para pasar el rato.'
-        }
-        // Puedes añadir más objetos aquí
-    ];
+            const listaPublicacionesContenedor = document.getElementById('listaPublicaciones');
+            const botonesFiltro = document.querySelectorAll('.filtros-inicio button');
+            // const btnNuevaPublicacion = document.getElementById('btnNuevaPublicacion'); // El botón sigue existiendo
 
-    // Función para crear el HTML de una tarjeta de publicación
-    function crearTarjetaHtmlParaPublicacion(publicacion) {
-        // Creamos un div para la tarjeta
-        const tarjetaDiv = document.createElement('div');
-        tarjetaDiv.className = 'tarjeta-publicacion-inicio'; // Le asignamos su clase CSS
+            const todasLasPublicaciones = [
+                {
+                    id: 1,
+                    urlImagen: 'https://placehold.co/220x150/ff9800/333?text=Peli+1',
+                    titulo: 'Peliculón Increíble y con un Título Muy Largo',
+                    valoracion: '9.5/10',
+                    categoria: 'pelicula',
+                    resena: 'Muy buena, la recomiendo mucho. Buenos efectos y trama que se extiende para probar el scroll y ver cómo se comporta el texto dentro de la tarjeta.'
+                },
+                {
+                    id: 2,
+                    urlImagen: 'https://placehold.co/220x150/4CAF50/fff?text=Serie+TOP',
+                    titulo: 'Serie para Maratonear',
+                    valoracion: '10/10',
+                    categoria: 'serie',
+                    resena: 'Engancha desde el primer capítulo. ¡No te la pierdas! Definitivamente una de las mejores del año.'
+                },
+                {
+                    id: 3,
+                    urlImagen: 'https://placehold.co/220x150/2196F3/fff?text=Música+Relax',
+                    titulo: 'Disco para Relajarse',
+                    valoracion: '8/10',
+                    categoria: 'musica',
+                    resena: 'Perfecto para desconectar después de un largo día de trabajo o estudio intenso.'
+                },
+                {
+                    id: 4,
+                    urlImagen: 'https://placehold.co/220x150/00BCD4/fff?text=Otra+Peli',
+                    titulo: 'Película de Acción Trepidante',
+                    valoracion: '7/10',
+                    categoria: 'pelicula',
+                    resena: 'Mucha acción y explosiones. Para pasar el rato y no pensar demasiado, cumple su cometido.'
+                },
+                {
+                    id: 5,
+                    urlImagen: 'https://placehold.co/220x150/E91E63/fff?text=Documental',
+                    titulo: 'Documental Impactante',
+                    valoracion: '9/10',
+                    categoria: 'serie', // O podría ser 'documental' si tienes esa categoría
+                    resena: 'Abre los ojos a una realidad desconocida. Muy bien investigado y presentado.'
+                }
+            ];
 
-        // Creamos y añadimos la imagen (si existe)
-        if (publicacion.urlImagen) {
-            const imagenEl = document.createElement('img');
-            imagenEl.src = publicacion.urlImagen;
-            imagenEl.alt = publicacion.titulo; // Texto alternativo para accesibilidad
-            // Fallback simple si la imagen no carga
-            imagenEl.onerror = function() { 
-                this.alt = 'Imagen no disponible';
-                this.src = 'https://placehold.co/200x150/ccc/999?text=Error'; 
-            };
-            tarjetaDiv.appendChild(imagenEl);
-        }
+            function crearTarjetaHtmlParaPublicacion(publicacion) {
+                const tarjetaDiv = document.createElement('div');
+                tarjetaDiv.className = 'tarjeta-publicacion-inicio';
 
-        // Creamos y añadimos el título
-        const tituloEl = document.createElement('h3');
-        tituloEl.textContent = publicacion.titulo;
-        tarjetaDiv.appendChild(tituloEl);
+                if (publicacion.urlImagen) {
+                    const imagenEl = document.createElement('img');
+                    imagenEl.src = publicacion.urlImagen;
+                    imagenEl.alt = publicacion.titulo;
+                    imagenEl.onerror = function() { 
+                        this.alt = 'Imagen no disponible';
+                        this.src = 'https://placehold.co/220x150/ccc/999?text=Error'; 
+                    };
+                    tarjetaDiv.appendChild(imagenEl);
+                }
 
-        // Creamos y añadimos la valoración
-        const valoracionEl = document.createElement('p');
-        valoracionEl.textContent = `Valoración: ${publicacion.valoracion}`;
-        tarjetaDiv.appendChild(valoracionEl);
+                const tituloEl = document.createElement('h3');
+                tituloEl.textContent = publicacion.titulo;
+                tarjetaDiv.appendChild(tituloEl);
 
-        // Creamos y añadimos la reseña (si existe)
-        if (publicacion.resena) {
-            const resenaEl = document.createElement('p');
-            resenaEl.textContent = publicacion.resena;
-            tarjetaDiv.appendChild(resenaEl);
-        }
+                const valoracionEl = document.createElement('p');
+                valoracionEl.textContent = `Valoración: ${publicacion.valoracion}`;
+                tarjetaDiv.appendChild(valoracionEl);
 
-        // Creamos y añadimos la categoría
-        const categoriaEl = document.createElement('p');
-        categoriaEl.className = 'categoria'; // Para darle un estilo específico si quieres
-        categoriaEl.textContent = `Categoría: ${publicacion.categoria}`;
-        tarjetaDiv.appendChild(categoriaEl);
-        
-        return tarjetaDiv; // Devolvemos el div de la tarjeta completo
-    }
+                if (publicacion.resena) {
+                    const resenaEl = document.createElement('p');
+                    resenaEl.className = 'descripcion-publicacion'; // Añadida clase para control de altura
+                    resenaEl.textContent = publicacion.resena;
+                    tarjetaDiv.appendChild(resenaEl);
+                }
 
-    // Función para mostrar las publicaciones en el HTML
-    function mostrarPublicacionesEnContenido(publicacionesAMostrar) {
-        // Primero, limpiamos el contenedor por si ya había algo
-        listaPublicacionesContenedor.innerHTML = '';
+                const categoriaEl = document.createElement('p'); // Cambiado a p para consistencia con otros textos
+                categoriaEl.className = 'categoria'; 
+                categoriaEl.textContent = `Categoría: ${publicacion.categoria}`;
+                tarjetaDiv.appendChild(categoriaEl);
+                
+                return tarjetaDiv;
+            }
 
-        if (publicacionesAMostrar.length === 0) {
-            listaPublicacionesContenedor.innerHTML = '<p>No hay publicaciones para mostrar en esta categoría.</p>';
-            return;
-        }
+            function mostrarPublicacionesEnContenido(publicacionesAMostrar) {
+                if (!listaPublicacionesContenedor) return;
+                listaPublicacionesContenedor.innerHTML = '';
 
-        // Por cada publicación en la lista, creamos su tarjeta y la añadimos al contenedor
-        publicacionesAMostrar.forEach(function(publicacion) {
-            const tarjetaHtml = crearTarjetaHtmlParaPublicacion(publicacion);
-            listaPublicacionesContenedor.appendChild(tarjetaHtml);
-        });
-    }
+                if (publicacionesAMostrar.length === 0) {
+                    listaPublicacionesContenedor.innerHTML = '<p style="width:100%; text-align:center;">No hay publicaciones para mostrar en esta categoría.</p>';
+                    return;
+                }
 
-    // Lógica para los botones de filtro
-    botonesFiltro.forEach(function(boton) {
-        boton.addEventListener('click', function() {
-            // Quitar clase 'activo' de todos los botones
-            botonesFiltro.forEach(btn => btn.classList.remove('activo'));
-            // Añadir clase 'activo' al botón clickeado
-            this.classList.add('activo');
-
-            const categoriaSeleccionada = this.dataset.categoria; // 'todo', 'pelicula', 'serie', etc.
-
-            if (categoriaSeleccionada === 'todo') {
-                mostrarPublicacionesEnContenido(todasLasPublicaciones);
-            } else {
-                const publicacionesFiltradas = todasLasPublicaciones.filter(function(publicacion) {
-                    return publicacion.categoria === categoriaSeleccionada;
+                publicacionesAMostrar.forEach(function(publicacion) {
+                    const tarjetaHtml = crearTarjetaHtmlParaPublicacion(publicacion);
+                    listaPublicacionesContenedor.appendChild(tarjetaHtml);
                 });
-                mostrarPublicacionesEnContenido(publicacionesFiltradas);
+            }
+
+            if (botonesFiltro.length > 0) {
+                botonesFiltro.forEach(function(boton) {
+                    boton.addEventListener('click', function() {
+                        botonesFiltro.forEach(btn => btn.classList.remove('activo'));
+                        this.classList.add('activo');
+                        const categoriaSeleccionada = this.dataset.categoria;
+
+                        if (categoriaSeleccionada === 'todo') {
+                            mostrarPublicacionesEnContenido(todasLasPublicaciones);
+                        } else {
+                            const publicacionesFiltradas = todasLasPublicaciones.filter(function(publicacion) {
+                                return publicacion.categoria === categoriaSeleccionada;
+                            });
+                            mostrarPublicacionesEnContenido(publicacionesFiltradas);
+                        }
+                    });
+                });
+            }
+
+            if (listaPublicacionesContenedor) {
+                mostrarPublicacionesEnContenido(todasLasPublicaciones);
+                 // Activar el primer botón de filtro ("Todo") por defecto
+                if (botonesFiltro.length > 0) {
+                    botonesFiltro.forEach(btn => btn.classList.remove('activo')); // Limpiar todos
+                    botonesFiltro[0].classList.add('activo'); // Activar el primero
+                }
+            } else {
+                console.error("No se encontró el elemento con ID 'listaPublicaciones'. Verifica tu HTML.");
             }
         });
-    });
-
-    // Lógica para el botón de "Nueva Publicación" (acción de ejemplo)
-    // if (btnNuevaPublicacion) {
-    //     btnNuevaPublicacion.addEventListener('click', function() {
-    //         alert('Aquí iría la lógica para crear una nueva publicación (ej. mostrar un formulario).');
-    //     });
-    // }
-
-    // Al cargar la página, mostrar todas las publicaciones por defecto
-    if (listaPublicacionesContenedor) { // Solo si existe el contenedor
-        mostrarPublicacionesEnContenido(todasLasPublicaciones);
-    } else {
-        console.error("No se encontró el elemento con ID 'listaPublicaciones'. Verifica tu HTML.");
-    }
-
-});
