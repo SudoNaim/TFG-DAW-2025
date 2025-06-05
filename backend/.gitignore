@@ -1,4 +1,28 @@
+# 1. Entorno virtual de Python
 env/
+venv/
+ENV/
+# (Si tu carpeta se llama “env”, exactamente “env/” bastará)
+
+# 2. Bytecode y caches de Python
 __pycache__/
-*.pyc
-.DS_Store
+*.py[cod]
+*.pyo
+*.pyd
+
+# 4. Archivos de base de datos locales (si existieran)
+*.sqlite
+*.db
+*.log
+
+# 5. Carpeta .git interna (si la hubiera)
+.git/
+
+# 6. Configuraciones locales de editores/IDE (opcional)
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# 7. Pip cache (si se generara)
+pip-selfcheck.json

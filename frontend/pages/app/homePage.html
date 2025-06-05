@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Likely</title>
+    <link rel="stylesheet" href="../../styles/appStyles/homePage.css" />
+</head>
+
+<body>
+    <div class="contenedor">
+
+        <div class="barra-lateral">
+            <a href="#" class="app-logo">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#ff9800" d="M12 2L2 22H22L12 2Z" />
+                </svg>
+                <span>Likely</span>
+            </a>
+            <ul>
+                <li><a href="homePage.html">Inicio</a></li>
+                <li><a href="miPerfil.html">Perfil</a></li>
+                <li><a href="amigos.html">Amigos</a></li>
+                <li><a href="configuracion.html">Configuración</a></li>
+                <li><a href="#">Cerrar sesión</a></li>
+            </ul>
+        </div>
+
+        <div class="contenido">
+            <h2>Mis Publicaciones</h2>
+
+            <div class="filtros-inicio">
+                <button data-categoria="todo" class="activo">Todo</button>
+                <button data-categoria="pelicula">Películas</button>
+                <button data-categoria="serie">Series</button>
+                <button data-categoria="musica">Música</button>
+            </div>
+
+            <div class="publicaciones-inicio" id="listaPublicaciones">
+                <!-- Las publicaciones se cargarán aquí con JavaScript -->
+                <!-- Ejemplo de tarjeta para visualización -->
+                <div class="tarjeta-publicacion-inicio">
+                    <img src="https://placehold.co/220x150/777/fff?text=Ejemplo+1" alt="Ejemplo 1">
+                    <h3>Título de Ejemplo Largo para Probar el Ajuste</h3>
+                    <p>Valoración: 9/10</p>
+                    <p class="descripcion-publicacion">Esta es una descripción de ejemplo para la publicación que puede
+                        ser un poco larga para ver cómo se ajusta el texto y si el scroll funciona correctamente con el
+                        botón fijo.</p>
+                    <span class="categoria">pelicula</span>
+                </div>
+                <div class="tarjeta-publicacion-inicio">
+                    <img src="https://placehold.co/220x150/888/fff?text=Ejemplo+2" alt="Ejemplo 2">
+                    <h3>Otro Título Más Corto</h3>
+                    <p>Valoración: 7/10</p>
+                    <p class="descripcion-publicacion">Descripción corta.</p>
+                    <span class="categoria">serie</span>
+                </div>
+                <div class="tarjeta-publicacion-inicio">
+                    <img src="https://placehold.co/220x150/999/fff?text=Ejemplo+3" alt="Ejemplo 3">
+                    <h3>Publicación Musical</h3>
+                    <p>Valoración: 8/10</p>
+                    <p class="descripcion-publicacion">Una reseña sobre el último álbum de mi artista favorito, con
+                        detalles sobre las mejores canciones.</p>
+                    <span class="categoria">musica</span>
+                </div>
+                <div class="tarjeta-publicacion-inicio">
+                    <img src="https://placehold.co/220x150/AAA/fff?text=Ejemplo+4" alt="Ejemplo 4">
+                    <h3>Cuarta Publicación</h3>
+                    <p>Valoración: 10/10</p>
+                    <p class="descripcion-publicacion">Simplemente perfecto, no tengo palabras para describir esta obra
+                        maestra del cine contemporáneo.</p>
+                    <span class="categoria">pelicula</span>
+                </div>
+                <!-- Añade más tarjetas para probar el scroll y ver el botón fijo -->
+            </div>
+
+            <!-- El enlace con el botón se mueve fuera del flujo normal del div.contenido,
+                 pero se posiciona relativo al viewport. Lo colocamos al final del body
+                 para asegurar que esté por encima de otros elementos si no se usa z-index alto en .contenido.
+                 O mejor, lo dejamos dentro de .contenido pero al final, y el CSS se encarga.
+                 Para mantenerlo simple y que el CSS de .contenido (padding-bottom) funcione bien,
+                 lo dejamos al final del div .contenido pero el CSS lo hará fijo.
+            -->
+            <!-- NO es necesario moverlo al final del body, el position:fixed lo saca del flujo.
+                 Lo dejamos aquí semánticamente, al final del div.contenido -->
+        </div>
+
+        <!-- El enlace con el botón se mueve fuera del flujo normal del div.contenido,
+         pero se posiciona relativo al viewport. Lo colocamos al final del body
+         para asegurar que esté por encima de otros elementos si no se usa z-index alto en .contenido.
+         O mejor, lo dejamos dentro de .contenido pero al final, y el CSS se encarga.
+         Para mantenerlo simple y que el CSS de .contenido (padding-bottom) funcione bien,
+         lo dejamos al final del div .contenido pero el CSS lo hará fijo.
+    -->
+        <a href="crearPublicacion.html" class="enlace-crear-publicacion-fijo">
+            <button id="btnNuevaPublicacion" class="boton-nueva-publicacion">Crear Nueva Publicación</button>
+        </a>
+
+        <script src="../../js/appJs/homePage.js"></script>
+
+</body>
+
+</html>

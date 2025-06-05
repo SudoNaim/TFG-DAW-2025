@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Likely</title>
+    <link rel="stylesheet" href="../../styles/appStyles/amigos.css" />
+</head>
+
+<body>
+    <div class="contenedor">
+        <div class="barra-lateral">
+            <a href="#" class="app-logo">
+                <!-- REVISAR
+                El svg nose como funciona en el html, se podría hacer con una imagen. -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#ff9800" d="M12 2L2 22H22L12 2Z" />
+                </svg>
+                <span>Likely</span>
+            </a>
+
+            <ul>
+                <li><a href="homePage.html">Inicio</a></li>
+                <li><a href="miPerfil.html">Perfil</a></li>
+                <li><a href="amigos.html">Amigos</a></li>
+                <li><a href="configuracion.html">Configuración</a></li>
+                <li><a href="#">Cerrar sesión</a></li>
+            </ul>
+        </div>
+
+        <div class="contenido">
+            <h2>Mis Amigos</h2>
+
+            <div class="seccion-anadir-amigo">
+                <h3>Añadir Amigo</h3>
+                <div class="campo-formulario-amigo">
+                    <label for="inputCodigoAmigo">Introduce el código de amigo:</label>
+                    <input type="text" id="inputCodigoAmigo" placeholder="Ej: #AB123XYZ">
+                    <button id="btnAnadirAmigo" class="boton-accion">Añadir</button>
+                </div>
+                <p id="mensajeAnadirAmigo" class="mensaje-feedback"></p>
+            </div>
+
+            <hr class="separador-secciones">
+
+            <h3>Mi Lista de Amigos</h3>
+            <div class="contenedor-lista-amigos" id="listaAmigos">
+                </div>
+        </div>
+
+    <script src="../../js/appJs/amigos.js"></script>
+
+</html>

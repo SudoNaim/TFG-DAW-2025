@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Likely</title>
+    <link rel="stylesheet" href="../../styles/appStyles/configuracion.css" />
+</head>
+
+<body>
+    <div class="contenedor">
+
+        <div class="barra-lateral">
+            <a href="#" class="app-logo">
+                <!-- REVISAR
+                El svg nose como funciona en el html, se podría hacer con una imagen. -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#ff9800" d="M12 2L2 22H22L12 2Z" />
+                </svg>
+                <span>Likely</span>
+            </a>
+
+            <ul>
+                <li><a href="homePage.html">Inicio</a></li>
+                <li><a href="miPerfil.html">Perfil</a></li>
+                <li><a href="amigos.html">Amigos</a></li>
+                <li><a href="configuracion.html">Configuración</a></li>
+                <li><a href="#">Cerrar sesión</a></li>
+            </ul>
+        </div>
+
+        <div class="contenido">
+            <h2>Configuración</h2>
+
+            <div class="contenedor-configuracion">
+
+                <div class="seccion-config">
+                    <h3>Cuenta</h3>
+                    <ul class="lista-opciones">
+                        <li><a href="#" id="opcionCambiarContrasena">Cambiar contraseña</a></li>
+                        <li><a href="#" id="opcionCambiarCorreo">Cambiar correo electrónico</a></li>
+                        <li><a href="#" id="opcionCerrarSesion" class="texto-importante">Cerrar Sesión</a></li>
+                        <li><a href="#" id="opcionBorrarCuenta" class="texto-peligro">Borrar cuenta</a></li>
+                    </ul>
+                </div>
+
+                <div class="seccion-config">
+                    <h3>Apariencia</h3>
+                    <ul class="lista-opciones">
+                        <li>
+                            <label for="selectorTema">Tema de la aplicación:</label>
+                            <select name="tema" id="selectorTema">
+                                <option value="oscuro">Oscuro (Actual)</option>
+                                <option value="claro" disabled>Claro (No disponible)</option>
+                            </select>
+                        </li>
+                        </ul>
+                </div>
+
+                <div class="seccion-config">
+                    <h3>Información</h3>
+                    <ul class="lista-opciones">
+                        <li><a href="#" id="opcionTerminos">Términos y Condiciones</a></li>
+                        <li><a href="#" id="opcionPoliticaPrivacidad">Política de Privacidad</a></li>
+                        <li><a href="#" id="opcionAcercaDe">Acerca de Likely v1.0</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    <script src="../../js/appJs/configuracion.js"></script>
+
+</html>

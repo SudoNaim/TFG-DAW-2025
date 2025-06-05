@@ -1,0 +1,315 @@
+/* Estilos generales (COPIADOS DE TU CSS DE PERFIL AMIGO Y ADAPTADOS) */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: black;
+        }
+
+        .contenedor {
+            display: flex;
+        }
+
+        /* BARRA LATERAL ESTILO (COPIADO DE TU CSS) */
+        .barra-lateral {
+            width: 250px;
+            height: 100vh;
+            background-color: #343434;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .app-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .app-logo svg {
+            width: 32px;
+            height: 32px;
+            margin-right: 10px;
+        }
+
+        .app-logo span {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .barra-lateral ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .barra-lateral ul li {
+            margin-bottom: 10px;
+        }
+
+        .barra-lateral ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: background-color 0.2s ease-in-out, padding-left 0.2s ease-in-out;
+        }
+
+        .barra-lateral ul li a:hover {
+            background-color: #3b3b3b;
+        }
+        /* FIN BARRA LATERAL ESTILO */
+
+        /* CONTENIDO PÁGINA (COPIADO DE TU CSS) */
+        .contenido {
+            flex: 1;
+            margin-left: 250px;
+            padding: 30px 40px;
+            background-color: black;
+            height: 100vh;
+            overflow-y: auto;
+            box-sizing: border-box;
+        }
+
+        /* Estilos para el contenido general y reutilizables (de perfilAmigo.css) */
+        .contenido h2.titulo-principal-vista { 
+            /* Clase genérica para el título principal de cualquier vista en .contenido */
+            color: white;
+            font-size: 1.8em;
+            margin-top: 0;
+            border-bottom: 1px solid #555;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Estilos para filtros (reutilizados de tu homePage / perfilAmigo) */
+        .filtros-inicio {
+            margin-bottom: 20px;
+        }
+
+        .filtros-inicio button {
+            background-color: #555;
+            color: white;
+            border: 1px solid #777;
+            padding: 8px 12px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .filtros-inicio button:hover {
+            background-color: #666;
+        }
+
+        .filtros-inicio button.activo {
+            background-color: #ff9800;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Estilos para la rejilla de publicaciones (reutilizados de tu homePage / perfilAmigo) */
+        .publicaciones-inicio {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            color: white;
+        }
+
+        /* Estilos para las tarjetas de publicación (reutilizados de tu homePage / perfilAmigo) */
+        .tarjeta-publicacion-inicio {
+            background-color: #2e2e2e;
+            border: 1px solid #444;
+            padding: 15px;
+            border-radius: 5px;
+            width: 220px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tarjeta-publicacion-inicio img {
+            width: 100%;
+            height: auto;
+            max-height: 150px;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border-radius: 3px;
+            background-color: #444;
+        }
+
+        .tarjeta-publicacion-inicio h3 {
+            font-size: 1.1em;
+            color: #ff9800;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .tarjeta-publicacion-inicio p {
+            font-size: 0.9em;
+            margin-bottom: 8px;
+            color: #ddd;
+            line-height: 1.4;
+        }
+
+        .tarjeta-publicacion-inicio .categoria {
+            font-size: 0.8em;
+            font-style: italic;
+            color: #aaa;
+            margin-top: auto;
+            align-self: flex-end;
+        }
+
+        /* --- NUEVOS ESTILOS Y ADAPTACIONES PARA MI PERFIL --- */
+
+        .cabecera-mi-perfil { /* Adaptado de .perfil-amigo-cabecera */
+            display: flex;
+            align-items: flex-start; 
+            gap: 25px;
+            margin-bottom: 30px;
+            padding: 25px;
+            background-color: #2a2a2a; 
+            border-radius: 8px;
+            border: 1px solid #404040;
+        }
+
+        .avatar-contenedor-editable {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .imagen-avatar-mi-perfil { /* Clase para la imagen del avatar */
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ff9800;
+            background-color: #555;
+        }
+
+        .boton-cambiar-avatar {
+            background-color: #484848;
+            color: white;
+            border: 1px solid #666;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .boton-cambiar-avatar:hover {
+            background-color: #5a5a5a;
+        }
+
+        .info-editable-mi-perfil { /* Adaptado de .info-cabecera-amigo */
+            flex-grow: 1;
+        }
+
+        .nombre-usuario-mi-perfil { /* Este es el h2 con el nombre del usuario */
+            color: white;
+            font-size: 1.8em;
+            margin: 0 0 10px 0;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .bio-contenedor-editable {
+            margin-bottom: 10px;
+            background-color: #343434;
+            padding: 10px;
+            border-radius: 4px;
+            min-height: 40px;
+        }
+
+        .texto-mi-bio {
+            color: #ccc;
+            font-size: 0.9em;
+            line-height: 1.5;
+            margin: 0;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .input-mi-bio { /* Textarea para editar bio */
+            width: 100%;
+            padding: 8px;
+            background-color: #222;
+            color: #e0e0e0;
+            border: 1px solid #555;
+            border-radius: 3px;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            font-size: 0.9em;
+            line-height: 1.5;
+            resize: vertical;
+            min-height: 70px;
+        }
+
+        .boton-editar-bio {
+            background-color: transparent;
+            color: #ff9800;
+            border: 1px solid #ff9800;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+            margin-top: 5px;
+        }
+        .boton-editar-bio:hover {
+            background-color: #ff9800;
+            color: #121212;
+        }
+
+        .acciones-edicion-bio {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .acciones-edicion-bio .boton-guardar {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 7px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85em;
+        }
+        .acciones-edicion-bio .boton-guardar:hover {
+            background-color: #e68a00;
+        }
+
+        .acciones-edicion-bio .boton-cancelar {
+            background-color: #555;
+            color: white;
+            border: 1px solid #777;
+            padding: 7px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85em;
+        }
+        .acciones-edicion-bio .boton-cancelar:hover {
+            background-color: #666;
+        }
+
+        .titulo-seccion-mis-publicaciones { /* Para "Mis Publicaciones" */
+            color: #ccc;
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 20px;
+            font-weight: normal;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #444;
+        }
