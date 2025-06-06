@@ -7,5 +7,5 @@ class User(Base):
     username = Column(String, nullable=False)
     email = Column(String, unique=True, index=True, nullable=False)
     password_hash = Column("password_hash", String(255), nullable=False)
-#   fecha_registro = Column(DateTime(timezone=True), server_default=func.now())
-#   perfil_publico = Column(Boolean, default=False)xº
+    bio = Column(String(500))
+    friend_code = Column(String(20), unique=True)

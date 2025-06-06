@@ -20,7 +20,7 @@ def register(user: UserCreate, db: Session = Depends(get_db)):
             raise HTTPException(status_code=400, detail="Email ya registrado")
 
         hashed_password = pwd_context.hash(user.password)
-        new_user = User(username=user.username, email=user.email, password=hashed_password)
+        new_user = User(username=user.username, email=user.email, password_hash=hashed_password)
         db.add(new_user)
         db.commit()
         db.refresh(new_user)

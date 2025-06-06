@@ -9,7 +9,9 @@ class UserOut(BaseModel):
     id: int
     username: str
     email: str
-
+    bio: str | None = None
+    friend_code: str | None = None
+    
     class Config:
         from_attributes = True
 

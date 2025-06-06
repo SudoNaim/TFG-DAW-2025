@@ -2,8 +2,10 @@ from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.config import engine, Base, get_db
 from app.models import user as user_model
+from app.models.post import Post
 from app.schemas import UserCreate, UserOut, UserLogin
 from app.routes import users
+from app.routes import posts
 from fastapi.staticfiles import StaticFiles
 import os
 from fastapi.middleware.cors import CORSMiddleware
@@ -23,5 +25,6 @@ Base.metadata.create_all(bind=engine)
 
 # Cargar rutas
 app.include_router(users.router)
+app.include_router(posts.router)
 
 # Para revisar el SWAGGER: http://127.0.0.1:8000/docs
