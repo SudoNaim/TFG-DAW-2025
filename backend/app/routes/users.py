@@ -2,7 +2,8 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.config import get_db
 from app.models.user import User
-from app.schemas.user import UserCreate, UserOut, UserLogin
+from app.models.post import Post      
+from app.schemas.user import UserCreate, UserOut, UserLogin, BioUpdate
 from passlib.context import CryptContext
 
 router = APIRouter()
@@ -40,3 +41,42 @@ def login(credentials: UserLogin, db: Session = Depends(get_db)):
         raise HTTPException(status_code=401, detail="Credenciales incorrectas")
 
     return {"message": "Login exitoso", "user_id": user.id}
+
+@router.get("/perfil/{user_id}")
+def obtener_perfil(user_id: int, db: Session = Depends(get_db)):
+    print("✅ ENTRANDO A /perfil")
+
+    usuario = db.query(User).filter(User.id == user_id).first()
+    if not usuario:
+        raise HTTPException(status_code=404, detail="Usuario no encontrado")
+
+    publicaciones = db.query(Post).filter(Post.user_id == user_id).all()
+
+    return {
+        "idUsuario":     usuario.id,
+        "nombreUsuario": usuario.username,
+        "avatarUrl":     "https://placehold.co/100x100/ff9800/333?text=Yo",
+        "bio":           usuario.bio,   # ← tu campo se llama `bio`
+        "publicaciones": [
+            {
+                "id":         p.id,
+                "urlImagen":  p.imagen_url,
+                "titulo":     p.titulo,
+                "valoracion": f"{p.valoracion}/10",
+                "categoria":  p.categoria,
+                "resena":     p.resena
+            }
+            for p in publicaciones
+        ]
+    }
+
+@router.put("/perfil/{user_id}/bio", response_model=UserOut)
+def actualizar_bio(user_id: int, bio_data: BioUpdate, db: Session = Depends(get_db)):
+    usuario = db.query(User).filter(User.id == user_id).first()
+    if not usuario:
+        raise HTTPException(status_code=404, detail="Usuario no encontrado")
+    # Actualizamos y guardamos
+    usuario.bio = bio_data.bio
+    db.commit()
+    db.refresh(usuario)
+    return usuario

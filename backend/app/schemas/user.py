@@ -5,6 +5,9 @@ class UserCreate(BaseModel):
     email: str
     password: str
 
+class BioUpdate(BaseModel):
+    bio: str
+
 class UserOut(BaseModel):
     id: int
     username: str

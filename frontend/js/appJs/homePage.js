@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const listaPublicacionesContenedor = document.getElementById('listaPublicaciones');
     const botonesFiltro = document.querySelectorAll('.filtros-inicio button');
-    let todasLasPublicaciones = [];  // ← ahora vacía, se rellenará con fetch
+    let todasLasPublicaciones = [];  // se rellenará con fetch
 
     // 1) Función para cargar desde el backend
     async function cargarPublicaciones() {
@@ -15,25 +15,25 @@ document.addEventListener('DOMContentLoaded', function () {
         } catch (err) {
             console.error('Error cargando publicaciones:', err);
             listaPublicacionesContenedor.innerHTML =
-              '<p style="width:100%; text-align:center;">No se pudieron cargar las publicaciones.</p>';
+                '<p style="width:100%; text-align:center;">No se pudieron cargar las publicaciones.</p>';
         }
     }
 
-    // 2) Tu función existente de creación de tarjeta
+    // 2) Creación de tarjeta con placeholder si falta imagen
     function crearTarjetaHtmlParaPublicacion(publicacion) {
         const tarjetaDiv = document.createElement('div');
         tarjetaDiv.className = 'tarjeta-publicacion-inicio';
 
-        if (publicacion.imagen_url) {
-            const imagenEl = document.createElement('img');
-            imagenEl.src = publicacion.imagen_url;
-            imagenEl.alt = publicacion.titulo;
-            imagenEl.onerror = function() { 
-                this.alt = 'Imagen no disponible';
-                this.src = 'https://placehold.co/220x150/ccc/999?text=Error'; 
-            };
-            tarjetaDiv.appendChild(imagenEl);
-        }
+        // Siempre mostramos <img>, con placeholder si no hay URL
+        const img = document.createElement('img');
+        const texto = encodeURIComponent(publicacion.titulo || 'No+Image');
+        img.src = publicacion.imagen_url || `https://placehold.co/220x150/777/fff?text=${texto}`;
+        img.alt = publicacion.titulo;
+        img.onerror = () => {
+            img.src = `https://placehold.co/220x150/ccc/999?text=${texto}`;
+            img.alt = 'Imagen no disponible';
+        };
+        tarjetaDiv.appendChild(img);
 
         const tituloEl = document.createElement('h3');
         tituloEl.textContent = publicacion.titulo;
@@ -51,34 +51,34 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         const categoriaEl = document.createElement('p');
-        categoriaEl.className = 'categoria'; 
+        categoriaEl.className = 'categoria';
         categoriaEl.textContent = `Categoría: ${publicacion.categoria}`;
         tarjetaDiv.appendChild(categoriaEl);
-        
+
         return tarjetaDiv;
     }
 
-    // 3) Tu función existente de mostrar en DOM
+    // 3) Mostrar en DOM
     function mostrarPublicacionesEnContenido(publicacionesAMostrar) {
         if (!listaPublicacionesContenedor) return;
         listaPublicacionesContenedor.innerHTML = '';
 
         if (publicacionesAMostrar.length === 0) {
             listaPublicacionesContenedor.innerHTML =
-            '<p style="width:100%; text-align:center;">No hay publicaciones para mostrar en esta categoría.</p>';
+                '<p style="width:100%; text-align:center;">No hay publicaciones para mostrar en esta categoría.</p>';
             return;
         }
 
-        publicacionesAMostrar.forEach(function(publicacion) {
+        publicacionesAMostrar.forEach(function (publicacion) {
             const tarjetaHtml = crearTarjetaHtmlParaPublicacion(publicacion);
             listaPublicacionesContenedor.appendChild(tarjetaHtml);
         });
     }
 
-    // 4) Listener de filtros (idéntico al tuyo)
+    // 4) Listener de filtros
     if (botonesFiltro.length > 0) {
-        botonesFiltro.forEach(function(boton) {
-            boton.addEventListener('click', function() {
+        botonesFiltro.forEach(function (boton) {
+            boton.addEventListener('click', function () {
                 botonesFiltro.forEach(btn => btn.classList.remove('activo'));
                 this.classList.add('activo');
                 const categoriaSeleccionada = this.dataset.categoria;
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (categoriaSeleccionada === 'todo') {
                     mostrarPublicacionesEnContenido(todasLasPublicaciones);
                 } else {
-                    const publicacionesFiltradas = todasLasPublicaciones.filter(function(publicacion) {
+                    const publicacionesFiltradas = todasLasPublicaciones.filter(function (publicacion) {
                         return publicacion.categoria === categoriaSeleccionada;
                     });
                     mostrarPublicacionesEnContenido(publicacionesFiltradas);
@@ -97,7 +97,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 5) Inicialización
     cargarPublicaciones().then(() => {
-        // Activar el primer filtro (“Todo”) solo tras cargar
         if (botonesFiltro.length > 0) {
             botonesFiltro.forEach(btn => btn.classList.remove('activo'));
             botonesFiltro[0].classList.add('activo');
