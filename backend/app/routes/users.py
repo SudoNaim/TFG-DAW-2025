@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from app.config import get_db
 from app.models.user import User
 from app.models.post import Post      
-from app.schemas.user import UserCreate, UserOut, UserLogin, BioUpdate
+from app.schemas.user import UserCreate, UserOut, UserLogin, BioUpdate, PasswordUpdate
 from passlib.context import CryptContext
 
 router = APIRouter()
@@ -80,3 +80,16 @@ def actualizar_bio(user_id: int, bio_data: BioUpdate, db: Session = Depends(get_
     db.commit()
     db.refresh(usuario)
     return usuario
+
+@router.put("/perfil/{user_id}/password")
+def cambiar_contrasena(user_id: int, pwd_data: PasswordUpdate, db: Session = Depends(get_db)):
+    usuario = db.query(User).filter(User.id == user_id).first()
+    if not usuario:
+        raise HTTPException(status_code=404, detail="Usuario no encontrado")
+    # Verificamos que la contraseña actual coincida
+    if not pwd_context.verify(pwd_data.current_password, usuario.password_hash):
+        raise HTTPException(status_code=400, detail="Contraseña actual incorrecta")
+    # Hasheamos y guardamos la nueva
+    usuario.password_hash = pwd_context.hash(pwd_data.new_password)
+    db.commit()
+    return {"message": "Contraseña actualizada correctamente"}

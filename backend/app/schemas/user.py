@@ -5,6 +5,11 @@ class UserCreate(BaseModel):
     email: str
     password: str
 
+class PasswordUpdate(BaseModel):
+    current_password: str
+    new_password: str
+
+
 class BioUpdate(BaseModel):
     bio: str
 
