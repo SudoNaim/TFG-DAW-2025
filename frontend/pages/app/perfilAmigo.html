@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="../../styles/appStyles/perfilAmigo.css" />
 </head>
 
-<body>
+<body style="display: none">
+    <script src="../../js/appJs/utils/guardian.js"></script>
     <div class="contenedor">
 
         <div class="barra-lateral">
@@ -33,10 +34,11 @@
 
         <div class="contenido">
             <div class="perfil-amigo-cabecera" id="cabeceraPerfilAmigo">
-                <img src="https://placehold.co/100x100/888/FFF?text=?" alt="Avatar del amigo" class="avatar-perfil-amigo">
+                <img src="https://placehold.co/100x100/888/FFF?text=?" alt="Avatar del amigo"
+                    class="avatar-perfil-amigo">
                 <div class="info-cabecera-amigo">
                     <h2 class="nombre-perfil-amigo">Cargando nombre...</h2>
-                    </div>
+                </div>
             </div>
 
             <h3 class="titulo-seccion-publicaciones-amigo" id="tituloPublicacionesAmigo">Publicaciones de...</h3>
@@ -46,13 +48,14 @@
                 <button data-categoria="pelicula">Películas</button>
                 <button data-categoria="serie">Series</button>
                 <button data-categoria="musica">Música</button>
-                </div>
+            </div>
 
             <section class="publicaciones-inicio" id="rejillaPublicacionesAmigo">
-                </section>
+            </section>
 
-    </div>
+        </div>
 
-    <script src="../../js/appJs/perfilAmigo.js"></script>
+        <script src="../../js/appJs/perfilAmigo.js"></script>
+        <script src="../../js/appJs/utils/logout.js"></script>
 
 </html>

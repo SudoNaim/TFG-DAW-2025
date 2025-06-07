@@ -8,8 +8,9 @@
     <title>Likely</title>
     <link rel="stylesheet" href="../../styles/appStyles/miPerfil.css" />
 </head>
-
-<body>
+<!-- Permite que no cargue el contenido antes de comprobar que el usuario esta logeado -->
+<body style="display: none">
+    <script src="../../js/appJs/utils/guardian.js"></script>
     <div class="contenedor">
 
         <div class="barra-lateral">
@@ -32,11 +33,12 @@
         </div>
 
         <div class="contenido">
-            
+
             <!-- Cabecera de Mi Perfil (Editable) -->
             <div class="cabecera-mi-perfil" id="cabeceraMiPerfil">
                 <div class="avatar-contenedor-editable">
-                    <img src="https://placehold.co/100x100/888/FFF?text=Yo" alt="Mi Avatar" class="imagen-avatar-mi-perfil" id="miAvatarActual">
+                    <img src="https://placehold.co/100x100/888/FFF?text=Yo" alt="Mi Avatar"
+                        class="imagen-avatar-mi-perfil" id="miAvatarActual">
                     <button class="boton-cambiar-avatar" id="botonCambiarMiAvatar">Cambiar Foto</button>
                     <input type="file" id="inputMiAvatar" accept="image/*" style="display: none;">
                 </div>
@@ -44,7 +46,8 @@
                     <h2 class="nombre-usuario-mi-perfil" id="miNombreDePerfil">Cargando nombre...</h2>
                     <div class="bio-contenedor-editable" id="contenedorMiBio">
                         <p class="texto-mi-bio" id="textoMiBioActual">Cargando biografía...</p>
-                        <textarea class="input-mi-bio" id="inputMiBio" rows="4" style="display: none;" placeholder="Escribe algo sobre ti... (máx. 200 caracteres)"></textarea>
+                        <textarea class="input-mi-bio" id="inputMiBio" rows="4" style="display: none;"
+                            placeholder="Escribe algo sobre ti... (máx. 200 caracteres)"></textarea>
                     </div>
                     <button class="boton-editar-bio" id="botonEditarMiBio">Editar Biografía</button>
                     <div class="acciones-edicion-bio" id="botonesAccionMiBio" style="display: none;">
@@ -73,5 +76,6 @@
         </div>
 
         <script src="../../js/appJs/miPerfil.js"></script>
+        <script src="../../js/appJs/utils/logout.js"></script>
 
 </html>

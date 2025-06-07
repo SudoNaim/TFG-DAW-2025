@@ -9,9 +9,10 @@
     <link rel="stylesheet" href="../../styles/appStyles/homePage.css" />
 </head>
 
-<body>
+<!-- Permite que no cargue el contenido antes de comprobar que el usuario esta logeado -->
+<body style="display: none">
+    <script src="../../js/appJs/utils/guardian.js"></script>
     <div class="contenedor">
-
         <div class="barra-lateral">
             <a href="#" class="app-logo">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -24,7 +25,8 @@
                 <li><a href="miPerfil.html">Perfil</a></li>
                 <li><a href="amigos.html">Amigos</a></li>
                 <li><a href="configuracion.html">Configuración</a></li>
-                <li><a href="#">Cerrar sesión</a></li>
+                <li><a href="#" id="logout-button">Cerrar sesión</a></li>
+
             </ul>
         </div>
 
@@ -99,6 +101,7 @@
         </a>
 
         <script src="../../js/appJs/homePage.js"></script>
+        <script src="../../js/appJs/utils/logout.js"></script>
 
 </body>
 

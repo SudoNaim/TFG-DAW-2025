@@ -6,10 +6,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Likely</title>
+    <script src="../../js/appJs/guardian.js"></script>
     <link rel="stylesheet" href="../../styles/appStyles/amigos.css" />
 </head>
 
-<body>
+<!-- Permite que no cargue el contenido antes de comprobar que el usuario esta logeado -->
+<body style="display: none">
+    <script src="../../js/appJs/utils/guardian.js"></script>
     <div class="contenedor">
         <div class="barra-lateral">
             <a href="#" class="app-logo">
@@ -51,5 +54,6 @@
         </div>
 
     <script src="../../js/appJs/amigos.js"></script>
+    <script src="../../js/appJs/utils/logout.js"></script>
 
 </html>
