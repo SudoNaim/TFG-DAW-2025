@@ -5,10 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Elementos del DOM ---
     const cabeceraMiPerfilContenedor = document.getElementById('cabeceraMiPerfil');
     const miAvatarImgEl = document.getElementById('miAvatarActual');
-    const btnCambiarAvatarEl = document.getElementById('botonCambiarMiAvatar');
-    const inputMiAvatarEl = document.getElementById('inputMiAvatar');
     const miNombrePerfilEl = document.getElementById('miNombreDePerfil');
-    const bioContenedorEl = document.getElementById('contenedorMiBio');
     const textoMiBioEl = document.getElementById('textoMiBioActual');
     const inputMiBioEl = document.getElementById('inputMiBio');
     const btnEditarBioEl = document.getElementById('botonEditarMiBio');
@@ -24,8 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let misPublicacionesFiltradas = [];
 
     function cargarDatosCabecera(datos) {
-        miNombrePerfilEl.textContent = datos.nombreUsuario || 'Nombre de Usuario';
         miAvatarImgEl.src = datos.avatarUrl || 'https://placehold.co/100x100/888/FFF?text=?';
+        miNombrePerfilEl.textContent = datos.nombreUsuario || 'Nombre de Usuario';
         textoMiBioEl.textContent = datos.bio || 'Añade una biografía...';
         inputMiBioEl.value = datos.bio || '';
         tituloMisPublicacionesEl.textContent = `Mis Publicaciones (${(datos.publicaciones || []).length})`;
@@ -35,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const tarjeta = document.createElement('div');
         tarjeta.className = 'tarjeta-publicacion-inicio';
 
-        // Siempre añadimos <img>, usando placeholder si falta URL
         const img = document.createElement('img');
         const texto = encodeURIComponent(publicacion.titulo || 'No+Image');
         img.src = publicacion.urlImagen || `https://placehold.co/220x150/777/fff?text=${texto}`;
@@ -119,9 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (cabeceraMiPerfilContenedor) cargarMiPerfil();
 
-    // Lógica para editar avatar (simulada) permanece inalterada...
-
-    // --- NUEVA LÓGICA: actualizar biografía en el backend ---
+    // --- Lógica: actualizar biografía en el backend ---
     if (btnEditarBioEl && btnGuardarBioEl && btnCancelarBioEl) {
         btnEditarBioEl.addEventListener('click', () => {
             textoMiBioEl.style.display = 'none';
@@ -144,7 +138,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     const err = await res.json();
                     throw new Error(err.detail || 'Error al actualizar bio');
                 }
-                // Actualizamos UI con respuesta
                 const actualizado = await res.json();
                 datosUsuarioActual.bio = actualizado.bio;
                 textoMiBioEl.textContent = actualizado.bio || 'Añade una biografía...';
@@ -153,7 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Error actualizando bio:', error);
                 alert(`Error: ${error.message}`);
             }
-            // Restaurar vista
             textoMiBioEl.style.display = 'block';
             inputMiBioEl.style.display = 'none';
             btnEditarBioEl.style.display = 'inline-block';
