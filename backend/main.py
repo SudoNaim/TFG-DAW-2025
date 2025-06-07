@@ -1,8 +1,12 @@
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.config import engine, Base, get_db
+
+# Ya tienes estos:
 from app.models import user as user_model
 from app.models.post import Post
+from app.models.user import User
+
 from app.schemas import UserCreate, UserOut, UserLogin
 from app.routes import users
 from app.routes import posts

@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
+from typing import List      
 from app.config import get_db
 from app.models.post import Post
 from app.schemas.post import PostCreate, PostOut
@@ -25,6 +26,6 @@ def crear_post(post: PostCreate, db: Session = Depends(get_db)):
     db.refresh(nuevo_post)
     return nuevo_post
 
-@router.get("/", response_model=list[PostOut])
-def obtener_posts(db: Session = Depends(get_db)):
-    return db.query(Post).all()
+@router.get("/{user_id}", response_model=List[PostOut])
+def obtener_posts_por_usuario(user_id: int, db: Session = Depends(get_db)):
+    return db.query(Post).filter(Post.user_id == user_id).all()
