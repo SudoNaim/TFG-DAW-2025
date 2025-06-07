@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Likely - Configuración</title>
     <script src="../../js/appJs/utils/guardian.js"></script>
     <link rel="stylesheet" href="../../styles/appStyles/configuracion.css" />
 </head>
-
-<!-- Permite que no cargue el contenido antes de comprobar que el usuario esta logeado -->
 <body style="display: none">
     <script src="../../js/appJs/utils/guardian.js"></script>
     <div class="contenedor">
+        <!-- Sidebar -->
         <div class="barra-lateral">
             <a href="#" class="app-logo">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -26,22 +24,21 @@
                 <li><a href="amigos.html">Amigos</a></li>
                 <li><a href="configuracion.html">Configuración</a></li>
                 <li><a href="#" id="logout-button">Cerrar sesión</a></li>
-
             </ul>
         </div>
 
+        <!-- Contenido -->
         <div class="contenido">
             <h2>Configuración</h2>
-
             <div class="contenedor-configuracion">
 
-                <!-- Sección Cuenta -->
+                <!-- Cuenta -->
                 <div class="seccion-config">
                     <h3>Cuenta</h3>
                     <ul class="lista-opciones">
                         <li>
                             <a href="#" id="opcionCambiarContrasena">Cambiar contraseña</a>
-                            <div id="formCambiarContrasena" class="form-config" style="display:none;">
+                            <div id="formCambiarContrasena" class="form-config">
                                 <input type="password" id="inputPassActual" placeholder="Contraseña actual" />
                                 <input type="password" id="inputPassNueva" placeholder="Nueva contraseña" />
                                 <button id="btnConfirmarPass">Cambiar contraseña</button>
@@ -49,9 +46,9 @@
                         </li>
                         <li>
                             <a href="#" id="opcionCambiarCorreo">Cambiar correo electrónico</a>
-                            <div id="formCambiarCorreo" class="form-config" style="display:none;">
-                                <input type="email" id="inputCorreoNuevo" placeholder="Nuevo correo electrónico" />
-                                <button id="btnConfirmarCorreo">Cambiar correo</button>
+                            <div id="formCambiarCorreo" class="form-config">
+                                <input type="email" id="inputNuevoCorreo" placeholder="Nuevo correo electrónico" />
+                                <button id="btnConfirmarCorreo">Confirmar cambio</button>
                             </div>
                         </li>
                         <li>
@@ -60,7 +57,7 @@
                     </ul>
                 </div>
 
-                <!-- Sección Información -->
+                <!-- Información -->
                 <div class="seccion-config">
                     <h3>Información</h3>
                     <ul class="lista-opciones">
@@ -72,11 +69,9 @@
 
             </div>
         </div>
-
     </div>
 
     <script src="../../js/appJs/configuracion.js"></script>
     <script src="../../js/appJs/utils/logout.js"></script>
 </body>
-
 </html>

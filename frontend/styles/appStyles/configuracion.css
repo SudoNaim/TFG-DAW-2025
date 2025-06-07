@@ -1,172 +1,140 @@
-/* Estilos generales */
+/* configuracion.css */
+
+/* Reset y tipografías */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: black;
-    /* Color de fondo del cuerpo */
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  color: #e0e0e0;
 }
 
-/* Contenedor principal con flexbox */
+/* Layout */
 .contenedor {
-    display: flex;
+  display: flex;
+  min-height: 100vh;
 }
 
-/* BARRA LATERAL ESTILO */
+/* Sidebar */
 .barra-lateral {
-    width: 250px;
-    height: 100vh;
-    background-color: #343434;
-    color: white;
-    padding: 20px;
-    box-sizing: border-box;
-    position: fixed;
-    top: 0;
-    left: 0;
-    overflow-y: auto;
-    z-index: 1000;
+  width: 250px;
+  background: #343434;
+  padding: 20px;
+  position: fixed; top: 0; left: 0;
+  height: 100vh;
+  overflow-y: auto;
 }
-
-.app-logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: white;
-    margin-bottom: 30px;
+.barra-lateral .app-logo {
+  display: flex; align-items: center;
+  color: #fff; text-decoration: none;
+  margin-bottom: 30px;
 }
-
-.app-logo svg {
-    width: 32px;
-    height: 32px;
-    margin-right: 10px;
+.barra-lateral .app-logo svg {
+  width: 32px; height: 32px;
+  margin-right: 10px;
 }
-
-.app-logo span {
-    font-size: 20px;
-    font-weight: bold;
+.barra-lateral .app-logo span {
+  font-size: 20px; font-weight: bold;
 }
-
 .barra-lateral ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
+  list-style: none;
+  margin-top: 20px;
 }
-
 .barra-lateral ul li {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
-
 .barra-lateral ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    display: block;
-    padding: 10px 15px;
-    border-radius: 8px;
-    transition: background-color 0.2s ease-in-out, padding-left 0.2s ease-in-out;
+  display: block;
+  padding: 10px 15px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background .2s;
 }
-
 .barra-lateral ul li a:hover {
-    background-color: #3b3b3b;
+  background: #3b3b3b;
 }
 
-/* FIN BARRA LATERAL ESTILO */
-
-/* CONTENIDO PÁGINA */
+/* Contenido principal */
 .contenido {
-    flex: 1;
-    margin-left: 250px;
-    padding: 30px 40px 90px 40px;
-    /* Aumentado padding-bottom para el botón fijo */
-    background-color: black;
-    height: 100vh;
-    overflow-y: auto;
-    box-sizing: border-box;
+  margin-left: 250px;
+  padding: 30px 40px;
+  width: calc(100% - 250px);
+  background: #000;
+  overflow-y: auto;
 }
-
 .contenido h2 {
-    color: white;
-    margin-top: 0;
-    border-bottom: 1px solid #555;
-    padding-bottom: 10px;
-    margin-bottom: 30px;
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #555;
+  padding-bottom: 10px;
 }
 
+/* Secciones */
 .contenedor-configuracion {
-    color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
-
-.seccion-config {
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px dashed #444;
-}
-
-.seccion-config:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-}
-
 .seccion-config h3 {
-    color: #ff9800;
-    font-size: 1.3em;
-    margin-top: 0;
-    margin-bottom: 15px;
+  color: #ff9800;
+  font-size: 1.3em;
+  margin-bottom: 10px;
 }
-
 .lista-opciones {
-    list-style: none;
-    padding: 0;
+  list-style: none;
 }
-
 .lista-opciones li {
-    margin-bottom: 12px;
-    font-size: 1em;
+  margin-bottom: 15px;
 }
-
 .lista-opciones li a {
-    color: #e0e0e0;
-    text-decoration: none;
-    padding: 8px 0;
-    display: inline-block;
-    transition: color 0.2s;
+  color: #e0e0e0;
+  text-decoration: none;
+  transition: color .2s;
 }
-
 .lista-opciones li a:hover {
-    color: #ff9800;
+  color: #ff9800;
 }
-
 .lista-opciones li a.texto-peligro {
-    color: #f44336;
+  color: #f44336;
 }
-
 .lista-opciones li a.texto-peligro:hover {
-    color: #d32f2f;
+  color: #d32f2f;
 }
 
-/* Formularios integrados */
+/* Formularios dentro de la lista */
 .form-config {
-    margin-top: 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: none;            /* ocultos por defecto */
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
 }
-
-.form-config input,
+.form-config input {
+  width: 100%;
+  padding: 10px;
+  background: #2c2c2c;
+  border: 1px solid #555;
+  border-radius: 4px;
+  color: #e0e0e0;
+  font-size: 1em;
+}
+.form-config input::placeholder {
+  color: #888;
+}
 .form-config button {
-    background-color: #2c2c2c;
-    color: #e0e0e0;
-    border: 1px solid #555;
-    padding: 8px 10px;
-    border-radius: 4px;
-    font-size: 0.95em;
+  width: 100%;
+  padding: 10px;
+  background: #ff9800;
+  border: none;
+  border-radius: 4px;
+  color: #333;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background .2s;
 }
-
-.form-config button {
-    background-color: #ff9800;
-    border: none;
-    cursor: pointer;
-}
-
 .form-config button:hover {
-    background-color: #e68a00;
+  background: #e68a00;
 }

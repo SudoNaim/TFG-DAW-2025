@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from app.config import get_db
 from app.models.user import User
 from app.models.post import Post      
-from app.schemas.user import UserCreate, UserOut, UserLogin, BioUpdate, PasswordUpdate
+from app.schemas.user import UserCreate, UserOut, UserLogin, BioUpdate, PasswordUpdate, EmailUpdate
 from passlib.context import CryptContext
 
 router = APIRouter()
@@ -93,3 +93,18 @@ def cambiar_contrasena(user_id: int, pwd_data: PasswordUpdate, db: Session = Dep
     usuario.password_hash = pwd_context.hash(pwd_data.new_password)
     db.commit()
     return {"message": "Contraseña actualizada correctamente"}
+
+@router.put("/perfil/{user_id}/email")
+def cambiar_correo(user_id: int, data: EmailUpdate, db: Session = Depends(get_db)):
+    usuario = db.query(User).filter(User.id == user_id).first()
+    if not usuario:
+        raise HTTPException(status_code=404, detail="Usuario no encontrado")
+
+    # Verificar que el nuevo email no esté ya registrado
+    existe = db.query(User).filter(User.email == data.email).first()
+    if existe and existe.id != user_id:
+        raise HTTPException(status_code=400, detail="El correo ya está en uso")
+
+    usuario.email = data.email
+    db.commit()
+    return {"message": "Correo electrónico actualizado correctamente"}
