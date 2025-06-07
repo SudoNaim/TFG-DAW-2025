@@ -10,6 +10,7 @@ from app.models.user import User
 from app.schemas import UserCreate, UserOut, UserLogin
 from app.routes import users
 from app.routes import posts
+from app.routes import amigos
 from fastapi.staticfiles import StaticFiles
 import os
 from fastapi.middleware.cors import CORSMiddleware
@@ -31,5 +32,6 @@ Base.metadata.create_all(bind=engine)
 # Cargar rutas
 app.include_router(users.router)
 app.include_router(posts.router)
+app.include_router(amigos.router)
 
 # Para revisar el SWAGGER: http://127.0.0.1:8000/docs

@@ -5,6 +5,7 @@ from app.models.user import User
 from app.models.post import Post      
 from app.schemas.user import UserCreate, UserOut, UserLogin, BioUpdate, PasswordUpdate, EmailUpdate
 from passlib.context import CryptContext
+import random, string
 
 router = APIRouter()
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
@@ -21,7 +22,15 @@ def register(user: UserCreate, db: Session = Depends(get_db)):
             raise HTTPException(status_code=400, detail="Email ya registrado")
 
         hashed_password = pwd_context.hash(user.password)
-        new_user = User(username=user.username, email=user.email, password_hash=hashed_password)
+        alfabeto = string.ascii_uppercase + string.digits
+        while True:
+            # 6 caracteres aleatorios
+            code = "#" + "".join(random.choices(alfabeto, k=6))
+            if not db.query(User).filter(User.friend_code == code).first():
+                break
+
+
+        new_user = User(username=user.username, email=user.email, password_hash=hashed_password, friend_code=code)
         db.add(new_user)
         db.commit()
         db.refresh(new_user)
