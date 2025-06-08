@@ -35,8 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
         btnVerPerfil.className = 'boton-ver-perfil';
         btnVerPerfil.textContent = 'Ver Perfil';
         btnVerPerfil.addEventListener('click', () => {
-            alert(`Ver perfil de ${amigo.username} (ID ${amigo.id}) — A IMPLEMENTAR`);
+            // redirige a perfilAmigo.html pasando el id
+            window.location.href = `perfilAmigo.html?id=${encodeURIComponent(amigo.id)}`;
         });
+
 
         const btnEliminar = document.createElement('button');
         btnEliminar.className = 'boton-eliminar-amigo texto-peligro';

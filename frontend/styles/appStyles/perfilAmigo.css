@@ -1,111 +1,153 @@
-/* Estilos generales */
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: black; /* Color de fondo del cuerpo */
-            /* overflow: hidden; Opcional: si quieres evitar cualquier scroll del body */
-        }
-
-        /* Contenedor principal con flexbox */
-        .contenedor {
-            display: flex; /* Puede seguir siendo flex, el contenido se ajustará con margin */
-        }
-
-        /* BARRA LATERAL ESTILO */
-        .barra-lateral {
-            width: 250px; /* Ancho fijo para el sidebar */
-            height: 100vh; /* Altura del 100% de la ventana */
-            background-color: #343434; /* Color de fondo del sidebar */
-            color: white;
-            padding: 20px;
-            box-sizing: border-box;
-            position: fixed; /* ¡Clave para que sea fija! */
-            top: 0;
-            left: 0;
-            overflow-y: auto; /* Scroll para la barra lateral si su contenido es muy largo */
-            z-index: 1000; /* Para asegurar que esté por encima */
-        }
-
-        /* Estilos para el logo de la aplicación */
-        .app-logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: white;
-            margin-bottom: 30px;
-        }
-
-        .app-logo svg {
-            width: 32px;
-            height: 32px;
-            margin-right: 10px;
-        }
-
-        .app-logo span {
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        /* Estilo de la lista del menú */
-        .barra-lateral ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 20px;
-        }
-
-        .barra-lateral ul li {
-            margin-bottom: 10px;
-        }
-
-        .barra-lateral ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-            display: block;
-            padding: 10px 15px;
-            border-radius: 8px;
-            transition: background-color 0.2s ease-in-out, padding-left 0.2s ease-in-out;
-        }
-
-        .barra-lateral ul li a:hover {
-            background-color: #3b3b3b;
-        }
-        /* FIN BARRA LATERAL ESTILO */
-
-
-/* CONTENIDO PÁGINA HOME */
-
-
-/* Contenido principal con margen para no quedar debajo del sidebar */
-
-        /* CONTENIDO PÁGINA */
-        .contenido {
-            flex: 1; /* Ocupa el espacio restante horizontalmente */
-            margin-left: 250px; /* ¡Clave! Mismo ancho que la barra-lateral */
-            padding: 30px 40px;
-            background-color: black;
-            height: 100vh; /* Ocupa toda la altura de la ventana */
-            overflow-y: auto; /* ¡Clave! Scroll solo para esta área */
-            box-sizing: border-box; /* Para que el padding no aumente el tamaño total */
-        }
-
-/* --- Estilos para el contenido general y reutilizables --- */
-.contenido h2 { /* Título principal de la vista (Mis Publicaciones, Perfil de Amigo, Configuración) */
-    color: white;
-    font-size: 1.8em; 
-    margin-top: 0;
-    border-bottom: 1px solid #555;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+/* Estilos generales (COPIADOS DE TU CSS DE PERFIL AMIGO Y ADAPTADOS) */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
 }
 
-/* Estilos para filtros (reutilizados de tu homePage) */
-.filtros-inicio { /* Usaremos esta misma clase para los filtros del perfil de amigo */
+.contenedor {
+    display: flex;
+}
+
+/* BARRA LATERAL ESTILO (COPIADO DE TU CSS) */
+.barra-lateral {
+    width: 250px;
+    height: 100vh;
+    background-color: #343434;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.app-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.app-logo svg {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+}
+
+.app-logo span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.barra-lateral ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.barra-lateral ul li {
+    margin-bottom: 10px;
+}
+
+.barra-lateral ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease-in-out, padding-left 0.2s ease-in-out;
+}
+
+.barra-lateral ul li a:hover {
+    background-color: #3b3b3b;
+}
+
+/* FIN BARRA LATERAL ESTILO */
+
+/* CONTENIDO PÁGINA (COPIADO DE TU CSS) */
+.contenido {
+    flex: 1;
+    margin-left: 250px;
+    padding: 30px 40px;
+    background-color: black;
+    height: 100vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+.cabecera-mi-perfil {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    margin-bottom: 30px;
+    padding: 25px;
+    background: #2a2a2a;
+    border-radius: 8px;
+    border: 1px solid #404040;
+}
+
+.avatar-contenedor {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagen-avatar-mi-perfil {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ff9800;
+    background: #555;
+}
+
+.info-perfil-amigo {
+    flex-grow: 1;
+}
+
+.nombre-usuario-mi-perfil {
+    color: white;
+    font-size: 1.8em;
+    margin: 0 0 10px 0;
+}
+
+.bio-contenedor {
+    background: #343434;
+    padding: 10px;
+    border-radius: 4px;
+    min-height: 40px;
+}
+
+.texto-mi-bio {
+    color: #ccc;
+    font-size: 0.9em;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 0;
+}
+
+.titulo-seccion-mis-publicaciones {
+    color: #ccc;
+    font-size: 1.4em;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    font-weight: normal;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #444;
+}
+
+.filtros-inicio {
     margin-bottom: 20px;
 }
 
 .filtros-inicio button {
-    background-color: #555;
+    background: #555;
     color: white;
     border: 1px solid #777;
     padding: 8px 12px;
@@ -116,32 +158,28 @@
 }
 
 .filtros-inicio button:hover {
-    background-color: #666;
+    background: #666;
 }
 
 .filtros-inicio button.activo {
-    background-color: #ff9800;
+    background: #ff9800;
     color: #333;
     font-weight: bold;
 }
 
-/* Estilos para la rejilla de publicaciones (reutilizados de tu homePage) */
-.publicaciones-inicio { /* Usaremos esta misma clase para la rejilla del perfil de amigo */
+.publicaciones-inicio {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
-    color: white; 
+    color: white;
 }
 
-/* Estilos para las tarjetas de publicación (reutilizados de tu homePage) */
-/* Estas tarjetas se usarán tanto para "Mis Publicaciones" como para las del amigo */
 .tarjeta-publicacion-inicio {
-    background-color: #2e2e2e;
+    background: #2e2e2e;
     border: 1px solid #444;
     padding: 15px;
     border-radius: 5px;
-    width: 220px; 
-    box-sizing: border-box;
+    width: 220px;
     display: flex;
     flex-direction: column;
 }
@@ -153,21 +191,20 @@
     object-fit: cover;
     margin-bottom: 10px;
     border-radius: 3px;
-    background-color: #444;
+    background: #444;
 }
 
 .tarjeta-publicacion-inicio h3 {
     font-size: 1.1em;
     color: #ff9800;
-    margin-top: 0;
-    margin-bottom: 8px;
+    margin: 0 0 8px;
 }
 
 .tarjeta-publicacion-inicio p {
     font-size: 0.9em;
-    margin-bottom: 8px;
     color: #ddd;
     line-height: 1.4;
+    margin: 0 0 8px;
 }
 
 .tarjeta-publicacion-inicio .categoria {
@@ -176,45 +213,4 @@
     color: #aaa;
     margin-top: auto;
     align-self: flex-end;
-}
-
-/* --- NUEVOS ESTILOS ESPECÍFICOS PARA PERFIL DE AMIGO --- */
-
-.perfil-amigo-cabecera {
-    display: flex;
-    align-items: center;
-    margin-bottom: 25px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #444; /* Similar al h2, pero para toda la cabecera */
-}
-
-.avatar-perfil-amigo {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-right: 20px;
-    object-fit: cover;
-    border: 2px solid #ff9800; /* Borde naranja para destacar */
-    background-color: #555; /* Placeholder */
-}
-
-.info-cabecera-amigo .nombre-perfil-amigo { /* Para el h2 dentro de la cabecera del perfil */
-    color: white;
-    font-size: 1.8em; /* Mismo tamaño que el h2 general de contenido */
-    margin: 0 0 5px 0; /* Ajusta márgenes */
-    border-bottom: none; /* Quitamos la línea si el contenedor ya la tiene */
-    padding-bottom: 0;
-}
-
-.info-cabecera-amigo .codigo-perfil-amigo { /* Si decides mostrar el código */
-    color: #aaa;
-    font-size: 0.9em;
-}
-
-.titulo-seccion-publicaciones-amigo { /* Para "Publicaciones de X" */
-    color: #ccc; /* Un color más suave que el título principal de la vista */
-    font-size: 1.4em;
-    margin-top: 0; /* El .perfil-amigo-cabecera ya da espacio */
-    margin-bottom: 20px;
-    font-weight: normal;
 }

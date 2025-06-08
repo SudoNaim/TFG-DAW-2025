@@ -1,61 +1,37 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Likely</title>
-    <link rel="stylesheet" href="../../styles/appStyles/perfilAmigo.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Likely – Perfil Amigo</title>
+  <link rel="stylesheet" href="../../styles/appStyles/miPerfil.css" />
 </head>
-
-<body style="display: none">
-    <script src="../../js/appJs/utils/guardian.js"></script>
-    <div class="contenedor">
-
-        <div class="barra-lateral">
-            <a href="#" class="app-logo">
-                <!-- REVISAR
-                El svg nose como funciona en el html, se podría hacer con una imagen. -->
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="#ff9800" d="M12 2L2 22H22L12 2Z" />
-                </svg>
-                <span>Likely</span>
-            </a>
-
-            <ul>
-                <li><a href="homePage.html">Inicio</a></li>
-                <li><a href="miPerfil.html">Perfil</a></li>
-                <li><a href="amigos.html">Amigos</a></li>
-                <li><a href="configuracion.html">Configuración</a></li>
-                <li><a href="#">Cerrar sesión</a></li>
-            </ul>
+<body style="display:none">
+  <script src="../../js/appJs/utils/guardian.js"></script>
+  <div class="contenedor">
+    <div class="barra-lateral"> … igual que en miPerfil … </div>
+    <div class="contenido">
+      <!-- Clona aquí tu cabecera de perfil pero sin botones de editar -->
+      <div class="cabecera-mi-perfil" id="cabeceraMiPerfil">
+        <div class="avatar-contenedor">
+          <img id="amigoAvatar" class="imagen-avatar-mi-perfil" src="" alt="Avatar amigo">
         </div>
-
-        <div class="contenido">
-            <div class="perfil-amigo-cabecera" id="cabeceraPerfilAmigo">
-                <img src="https://placehold.co/100x100/888/FFF?text=?" alt="Avatar del amigo"
-                    class="avatar-perfil-amigo">
-                <div class="info-cabecera-amigo">
-                    <h2 class="nombre-perfil-amigo">Cargando nombre...</h2>
-                </div>
-            </div>
-
-            <h3 class="titulo-seccion-publicaciones-amigo" id="tituloPublicacionesAmigo">Publicaciones de...</h3>
-
-            <div class="filtros-inicio" id="filtrosPublicacionesAmigo">
-                <button data-categoria="todo" class="activo">Todo</button>
-                <button data-categoria="pelicula">Películas</button>
-                <button data-categoria="serie">Series</button>
-                <button data-categoria="musica">Música</button>
-            </div>
-
-            <section class="publicaciones-inicio" id="rejillaPublicacionesAmigo">
-            </section>
-
+        <div class="info-editable-mi-perfil">
+          <h2 id="amigoNombre" class="nombre-usuario-mi-perfil">Cargando…</h2>
+          <p id="amigoBio" class="texto-mi-bio">Cargando bio…</p>
         </div>
-
-        <script src="../../js/appJs/perfilAmigo.js"></script>
-        <script src="../../js/appJs/utils/logout.js"></script>
-
+      </div>
+      <h3 id="tituloPublicaciones" class="titulo-seccion-mis-publicaciones">Publicaciones</h3>
+      <div class="filtros-inicio" id="filtrosPublicacionesAmigo">
+        <button data-categoria="todo" class="activo">Todo</button>
+        <button data-categoria="pelicula">Películas</button>
+        <button data-categoria="serie">Series</button>
+        <button data-categoria="musica">Música</button>
+      </div>
+      <section class="publicaciones-inicio" id="rejillaPublicacionesAmigo"></section>
+    </div>
+  </div>
+  <script src="../../js/appJs/perfilAmigo.js"></script>
+  <script src="../../js/appJs/utils/logout.js"></script>
+</body>
 </html>
