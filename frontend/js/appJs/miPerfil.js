@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cabeceraMiPerfilContenedor = document.getElementById('cabeceraMiPerfil');
     const miAvatarImgEl = document.getElementById('miAvatarActual');
     const miNombrePerfilEl = document.getElementById('miNombreDePerfil');
+    const miFriendCodeEl = document.getElementById('miFriendCode');           // nuevo
     const textoMiBioEl = document.getElementById('textoMiBioActual');
     const inputMiBioEl = document.getElementById('inputMiBio');
     const btnEditarBioEl = document.getElementById('botonEditarMiBio');
@@ -23,9 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function cargarDatosCabecera(datos) {
         miAvatarImgEl.src = datos.avatarUrl || 'https://placehold.co/100x100/888/FFF?text=?';
         miNombrePerfilEl.textContent = datos.nombreUsuario || 'Nombre de Usuario';
+        miFriendCodeEl.textContent = `Código amigo: ${datos.friend_code || '—'}`;  // nuevo
         textoMiBioEl.textContent = datos.bio || 'Añade una biografía...';
         inputMiBioEl.value = datos.bio || '';
-        tituloMisPublicacionesEl.textContent = `Mis Publicaciones (${(datos.publicaciones || []).length})`;
+        tituloMisPublicacionesEl.textContent = 'Mis Publicaciones';
     }
 
     function crearTarjetaPublicacionHtml(publicacion) {
@@ -68,7 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function mostrarMisPublicaciones(lista) {
         rejillaMisPublicacionesContenedor.innerHTML = '';
         if (!lista.length) {
-            rejillaMisPublicacionesContenedor.innerHTML = '<p style="color:#ccc; text-align:center; width:100%">Aún no tienes publicaciones en esta categoría.</p>';
+            rejillaMisPublicacionesContenedor.innerHTML =
+                '<p style="color:#ccc; text-align:center; width:100%">Aún no tienes publicaciones en esta categoría.</p>';
             return;
         }
         lista.forEach(pub => {
@@ -109,7 +112,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } catch (err) {
             console.error(err);
-            cabeceraMiPerfilContenedor.innerHTML = '<p style="text-align:center; width:100%">Error al cargar perfil.</p>';
+            cabeceraMiPerfilContenedor.innerHTML =
+                '<p style="text-align:center; width:100%">Error al cargar perfil.</p>';
         }
     }
 

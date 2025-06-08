@@ -65,7 +65,8 @@ def obtener_perfil(user_id: int, db: Session = Depends(get_db)):
         "idUsuario":     usuario.id,
         "nombreUsuario": usuario.username,
         "avatarUrl":     "https://placehold.co/100x100/ff9800/333?text=Yo",
-        "bio":           usuario.bio,   # ← tu campo se llama `bio`
+        "bio":           usuario.bio,
+        "friend_code":   usuario.friend_code,
         "publicaciones": [
             {
                 "id":         p.id,

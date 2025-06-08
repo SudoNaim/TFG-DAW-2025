@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Likely – Perfil Amigo</title>
   <link rel="stylesheet" href="../../styles/appStyles/miPerfil.css" />
 </head>
-<body style="display:none">
+<body style="display: none">
   <script src="../../js/appJs/utils/guardian.js"></script>
   <div class="contenedor">
-    <div class="barra-lateral"> … igual que en miPerfil … </div>
+    <div class="barra-lateral">
+      <a href="#" class="app-logo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#ff9800" d="M12 2L2 22H22L12 2Z" />
+        </svg>
+        <span>Likely</span>
+      </a>
+      <ul>
+        <li><a href="homePage.html">Inicio</a></li>
+        <li><a href="miPerfil.html">Perfil</a></li>
+        <li><a href="amigos.html">Amigos</a></li>
+        <li><a href="configuracion.html">Configuración</a></li>
+        <li><a href="#" id="logout-button">Cerrar sesión</a></li>
+
+      </ul>
+    </div>
     <div class="contenido">
       <!-- Clona aquí tu cabecera de perfil pero sin botones de editar -->
       <div class="cabecera-mi-perfil" id="cabeceraMiPerfil">
@@ -34,4 +50,5 @@
   <script src="../../js/appJs/perfilAmigo.js"></script>
   <script src="../../js/appJs/utils/logout.js"></script>
 </body>
+
 </html>

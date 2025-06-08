@@ -310,3 +310,9 @@ body {
     padding-bottom: 10px;
     border-bottom: 1px solid #444;
 }
+
+.friend-code {
+  color: #fff;        /* blanco */
+  font-size: 0.9em;   /* tamaño más discreto */
+  margin: 5px 0 10px; /* ajusta márgenes si lo necesitas */
+}

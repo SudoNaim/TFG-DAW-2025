@@ -1,114 +1,135 @@
 /* Estilos generales */
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: black; /* Color de fondo del cuerpo */
-            /* overflow: hidden; Opcional: si quieres evitar cualquier scroll del body */
-        }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    /* Color de fondo del cuerpo */
+    /* overflow: hidden; Opcional: si quieres evitar cualquier scroll del body */
+}
 
-        /* Contenedor principal con flexbox */
-        .contenedor {
-            display: flex; /* Puede seguir siendo flex, el contenido se ajustará con margin */
-        }
+/* Contenedor principal con flexbox */
+.contenedor {
+    display: flex;
+    /* Puede seguir siendo flex, el contenido se ajustará con margin */
+}
 
-        /* BARRA LATERAL ESTILO */
-        .barra-lateral {
-            width: 250px; /* Ancho fijo para el sidebar */
-            height: 100vh; /* Altura del 100% de la ventana */
-            background-color: #343434; /* Color de fondo del sidebar */
-            color: white;
-            padding: 20px;
-            box-sizing: border-box;
-            position: fixed; /* ¡Clave para que sea fija! */
-            top: 0;
-            left: 0;
-            overflow-y: auto; /* Scroll para la barra lateral si su contenido es muy largo */
-            z-index: 1000; /* Para asegurar que esté por encima */
-        }
+/* BARRA LATERAL ESTILO */
+.barra-lateral {
+    width: 250px;
+    /* Ancho fijo para el sidebar */
+    height: 100vh;
+    /* Altura del 100% de la ventana */
+    background-color: #343434;
+    /* Color de fondo del sidebar */
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    position: fixed;
+    /* ¡Clave para que sea fija! */
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    /* Scroll para la barra lateral si su contenido es muy largo */
+    z-index: 1000;
+    /* Para asegurar que esté por encima */
+}
 
-        /* Estilos para el logo de la aplicación */
-        .app-logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: white;
-            margin-bottom: 30px;
-        }
+/* Estilos para el logo de la aplicación */
+.app-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    margin-bottom: 30px;
+}
 
-        .app-logo svg {
-            width: 32px;
-            height: 32px;
-            margin-right: 10px;
-        }
+.app-logo svg {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+}
 
-        .app-logo span {
-            font-size: 20px;
-            font-weight: bold;
-        }
+.app-logo span {
+    font-size: 20px;
+    font-weight: bold;
+}
 
-        /* Estilo de la lista del menú */
-        .barra-lateral ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 20px;
-        }
+/* Estilo de la lista del menú */
+.barra-lateral ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
 
-        .barra-lateral ul li {
-            margin-bottom: 10px;
-        }
+.barra-lateral ul li {
+    margin-bottom: 10px;
+}
 
-        .barra-lateral ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-            display: block;
-            padding: 10px 15px;
-            border-radius: 8px;
-            transition: background-color 0.2s ease-in-out, padding-left 0.2s ease-in-out;
-        }
+.barra-lateral ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease-in-out, padding-left 0.2s ease-in-out;
+}
 
-        .barra-lateral ul li a:hover {
-            background-color: #3b3b3b;
-        }
-        /* FIN BARRA LATERAL ESTILO */
+.barra-lateral ul li a:hover {
+    background-color: #3b3b3b;
+}
+
+/* FIN BARRA LATERAL ESTILO */
 
 
 /* CONTENIDO PÁGINA HOME */
 
 /* --- ESTILOS PARA LA PÁGINA DE AMIGOS (dentro de .contenido) --- */
- /* CONTENIDO PÁGINA */
-        .contenido {
-            flex: 1; /* Ocupa el espacio restante horizontalmente */
-            margin-left: 250px; /* ¡Clave! Mismo ancho que la barra-lateral */
-            padding: 30px 40px;
-            background-color: black;
-            height: 100vh; /* Ocupa toda la altura de la ventana */
-            overflow-y: auto; /* ¡Clave! Scroll solo para esta área */
-            box-sizing: border-box; /* Para que el padding no aumente el tamaño total */
-        }
+/* CONTENIDO PÁGINA */
+.contenido {
+    flex: 1;
+    /* Ocupa el espacio restante horizontalmente */
+    margin-left: 250px;
+    /* ¡Clave! Mismo ancho que la barra-lateral */
+    padding: 30px 40px;
+    background-color: black;
+    height: 100vh;
+    /* Ocupa toda la altura de la ventana */
+    overflow-y: auto;
+    /* ¡Clave! Scroll solo para esta área */
+    box-sizing: border-box;
+    /* Para que el padding no aumente el tamaño total */
+}
 
 /* Título de sección (reutiliza o ajusta el estilo de .contenido h2 si ya lo tienes) */
- /* Si quieres un estilo específico para este h2 */
-.contenido h2, h3 { /* Para subtítulos como "Añadir Amigo" o "Mi Lista de Amigos" */
+/* Si quieres un estilo específico para este h2 */
+.contenido h2,
+h3 {
+    /* Para subtítulos como "Añadir Amigo" o "Mi Lista de Amigos" */
     color: white;
     margin-top: 0;
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
 
-.contenido h2.titulo-amigos { /* Si usas clase específica para el H2 principal */
+.contenido h2.titulo-amigos {
+    /* Si usas clase específica para el H2 principal */
     font-size: 1.8em;
     border-bottom: 1px solid #555;
 }
+
 .contenido h3 {
-    color: #ff9800; /* Naranja para los subtítulos de sección */
+    color: #ff9800;
+    /* Naranja para los subtítulos de sección */
     font-size: 1.4em;
-    margin-top: 30px; /* Espacio antes de un nuevo subtítulo de sección */
+    margin-top: 30px;
+    /* Espacio antes de un nuevo subtítulo de sección */
 }
 
 
 .seccion-anadir-amigo {
-    background-color: #2e2e2e; /* Fondo ligeramente distinto para la sección */
+    background-color: #2e2e2e;
+    /* Fondo ligeramente distinto para la sección */
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 30px;
@@ -117,30 +138,37 @@
 .campo-formulario-amigo {
     display: flex;
     align-items: center;
-    gap: 10px; /* Espacio entre label, input y botón */
-    flex-wrap: wrap; /* Para que se ajuste en pantallas pequeñas */
+    gap: 10px;
+    /* Espacio entre label, input y botón */
+    flex-wrap: wrap;
+    /* Para que se ajuste en pantallas pequeñas */
 }
 
 .campo-formulario-amigo label {
     font-size: 0.95em;
     color: #e0e0e0;
-    margin-bottom: 5px; /* Si el label está encima en móvil */
+    margin-bottom: 5px;
+    /* Si el label está encima en móvil */
 }
 
 .campo-formulario-amigo input[type="text"] {
-    flex-grow: 1; /* El input ocupa el espacio disponible */
+    flex-grow: 1;
+    /* El input ocupa el espacio disponible */
     padding: 10px 12px;
     background-color: #2c2c2c;
     color: #e0e0e0;
     border: 1px solid #555;
     border-radius: 4px;
     font-size: 1em;
-    min-width: 200px; /* Ancho mínimo para el input */
+    min-width: 200px;
+    /* Ancho mínimo para el input */
 }
 
-.boton-accion { /* Estilo base para botones de acción como "Añadir" */
+.boton-accion {
+    /* Estilo base para botones de acción como "Añadir" */
     padding: 10px 18px;
-    background-color: #ff9800; /* Naranja */
+    background-color: #ff9800;
+    /* Naranja */
     color: white;
     border: none;
     border-radius: 4px;
@@ -150,31 +178,40 @@
 }
 
 .boton-accion:hover {
-    background-color: #e68a00; /* Naranja más oscuro */
+    background-color: #e68a00;
+    /* Naranja más oscuro */
 }
 
 .mensaje-feedback {
     margin-top: 10px;
     font-size: 0.9em;
-    min-height: 1.2em; /* Para que no salte el layout si no hay mensaje */
+    min-height: 1.2em;
+    /* Para que no salte el layout si no hay mensaje */
 }
+
 .mensaje-feedback.exito {
-    color: #4CAF50; /* Verde para éxito */
+    color: #4CAF50;
+    /* Verde para éxito */
 }
+
 .mensaje-feedback.error {
-    color: #f44336; /* Rojo para error */
+    color: #f44336;
+    /* Rojo para error */
 }
 
 .separador-secciones {
     border: none;
-    border-top: 1px solid #444; /* Línea separadora sutil */
+    border-top: 1px solid #444;
+    /* Línea separadora sutil */
     margin: 30px 0;
 }
 
 .contenedor-lista-amigos {
     display: flex;
-    flex-direction: column; /* Amigos uno debajo del otro */
-    gap: 15px; /* Espacio entre tarjetas de amigo */
+    flex-direction: column;
+    /* Amigos uno debajo del otro */
+    gap: 15px;
+    /* Espacio entre tarjetas de amigo */
 }
 
 .tarjeta-amigo {
@@ -184,26 +221,33 @@
     border: 1px solid #404040;
     display: flex;
     align-items: center;
-    gap: 15px; /* Espacio entre avatar, info y acciones */
+    gap: 15px;
+    /* Espacio entre avatar, info y acciones */
     transition: background-color 0.2s;
 }
-.tarjeta-amigo:hover{
+
+.tarjeta-amigo:hover {
     background-color: #3a3a3a;
 }
 
 .avatar-amigo {
     width: 50px;
     height: 50px;
-    border-radius: 50%; /* Círculo */
-    background-color: #555; /* Placeholder si no hay imagen */
+    border-radius: 50%;
+    /* Círculo */
+    background-color: #555;
+    /* Placeholder si no hay imagen */
     object-fit: cover;
-    flex-shrink: 0; /* Evita que el avatar se encoja */
+    flex-shrink: 0;
+    /* Evita que el avatar se encoja */
 }
 
 .info-amigo {
-    flex-grow: 1; /* Ocupa el espacio disponible */
+    flex-grow: 1;
+    /* Ocupa el espacio disponible */
     display: flex;
-    flex-direction: column; /* Nombre arriba, código abajo */
+    flex-direction: column;
+    /* Nombre arriba, código abajo */
 }
 
 .nombre-amigo {
@@ -219,8 +263,10 @@
 
 .acciones-amigo {
     display: flex;
-    gap: 10px; /* Espacio entre botones de acción de la tarjeta */
-    flex-shrink: 0; /* Evita que los botones se encojan */
+    gap: 10px;
+    /* Espacio entre botones de acción de la tarjeta */
+    flex-shrink: 0;
+    /* Evita que los botones se encojan */
 }
 
 .acciones-amigo .boton-ver-perfil,
@@ -237,17 +283,32 @@
     background-color: #4a4a4a;
     color: white;
 }
+
 .acciones-amigo .boton-ver-perfil:hover {
     background-color: #5a5a5a;
     border-color: #777;
 }
 
-.acciones-amigo .boton-eliminar-amigo.texto-peligro { /* Clase de la página de config reutilizada */
+.acciones-amigo .boton-eliminar-amigo.texto-peligro {
+    /* Clase de la página de config reutilizada */
     background-color: transparent;
-    color: #f44336; /* Rojo */
+    color: #f44336;
+    /* Rojo */
     border-color: #f44336;
 }
+
 .acciones-amigo .boton-eliminar-amigo.texto-peligro:hover {
     background-color: #f44336;
     color: white;
+}
+
+#mensajeAnadirAmigo.exito {
+  color: #33d730;      /* blanco */
+  font-size: 1em;   /* ajusta al gusto */
+  margin-top: 12px; /* espacio sobre el separador */
+}
+
+/* Y si quieres los mensajes de error en rojo */
+#mensajeAnadirAmigo.error {
+  color: #f44336;   /* rojo peligro */
 }
