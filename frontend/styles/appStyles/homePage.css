@@ -1,198 +1,192 @@
-/* Estilos generales */
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: black; /* Color de fondo del cuerpo */
-        }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+}
 
-        /* Contenedor principal con flexbox */
-        .contenedor {
-            display: flex; 
-        }
+.contenedor {
+    display: flex;
+}
 
-        /* BARRA LATERAL ESTILO */
-        .barra-lateral {
-            width: 250px; 
-            height: 100vh; 
-            background-color: #343434; 
-            color: white;
-            padding: 20px;
-            box-sizing: border-box;
-            position: fixed; 
-            top: 0;
-            left: 0;
-            overflow-y: auto; 
-            z-index: 1000; 
-        }
+.barra-lateral {
+    width: 250px;
+    height: 100vh;
+    background-color: #343434;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    z-index: 1000;
+}
 
-        .app-logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: white;
-            margin-bottom: 30px;
-        }
+.app-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    margin-bottom: 30px;
+}
 
-        .app-logo svg {
-            width: 32px;
-            height: 32px;
-            margin-right: 10px;
-        }
+.app-logo svg {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+}
 
-        .app-logo span {
-            font-size: 20px;
-            font-weight: bold;
-        }
+.app-logo span {
+    font-size: 20px;
+    font-weight: bold;
+}
 
-        .barra-lateral ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 20px;
-        }
+.barra-lateral ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
 
-        .barra-lateral ul li {
-            margin-bottom: 10px;
-        }
+.barra-lateral ul li {
+    margin-bottom: 10px;
+}
 
-        .barra-lateral ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-            display: block;
-            padding: 10px 15px;
-            border-radius: 8px;
-            transition: background-color 0.2s ease-in-out, padding-left 0.2s ease-in-out;
-        }
+.barra-lateral ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease-in-out, padding-left 0.2s ease-in-out;
+}
 
-        .barra-lateral ul li a:hover {
-            background-color: #3b3b3b;
-        }
-        /* FIN BARRA LATERAL ESTILO */
+.barra-lateral ul li a:hover {
+    background-color: #3b3b3b;
+}
 
-        /* CONTENIDO PÁGINA */
-        .contenido {
-            flex: 1; 
-            margin-left: 250px; 
-            padding: 30px 40px 90px 40px; /* Aumentado padding-bottom para el botón fijo */
-            background-color: black;
-            height: 100vh; 
-            overflow-y: auto; 
-            box-sizing: border-box; 
-        }
+.contenido {
+    flex: 1;
+    margin-left: 250px;
+    padding: 30px 40px 90px 40px;
+    background-color: black;
+    height: 100vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
 
-        .contenido h2 { 
-            color: white;
-            margin-top: 0; 
-            border-bottom: 1px solid #555; 
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
+.contenido h2 {
+    color: white;
+    margin-top: 0;
+    border-bottom: 1px solid #555;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
 
-        .filtros-inicio {
-            margin-bottom: 20px;
-        }
+.filtros-inicio {
+    margin-bottom: 20px;
+}
 
-        .filtros-inicio button {
-            background-color: #555; 
-            color: white;
-            border: 1px solid #777;
-            padding: 8px 12px;
-            margin-right: 8px;
-            margin-bottom: 8px; 
-            cursor: pointer;
-            border-radius: 4px; 
-        }
+.filtros-inicio button {
+    background-color: #555;
+    color: white;
+    border: 1px solid #777;
+    padding: 8px 12px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+}
 
-        .filtros-inicio button:hover {
-            background-color: #666;
-        }
+.filtros-inicio button:hover {
+    background-color: #666;
+}
 
-        .filtros-inicio button.activo { 
-            background-color: #ff9800; 
-            color: #333;
-            font-weight: bold;
-        }
+.filtros-inicio button.activo {
+    background-color: #ff9800;
+    color: #333;
+    font-weight: bold;
+}
 
-        .publicaciones-inicio {
-            display: flex; 
-            flex-wrap: wrap; 
-            gap: 15px; 
-            color: white; 
-        }
+.publicaciones-inicio {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    color: white;
+}
 
-        .tarjeta-publicacion-inicio {
-            background-color: #2e2e2e; 
-            border: 1px solid #444; 
-            padding: 15px;
-            border-radius: 5px; 
-            width: 220px; 
-            box-sizing: border-box; 
-            display: flex;
-            flex-direction: column; 
-        }
+.tarjeta-publicacion-inicio {
+    background-color: #2e2e2e;
+    border: 1px solid #444;
+    padding: 15px;
+    border-radius: 5px;
+    width: 220px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
 
-        .tarjeta-publicacion-inicio img {
-            width: 100%; 
-            height: 150px; /* Altura fija para consistencia */
-            object-fit: cover; 
-            margin-bottom: 10px;
-            border-radius: 3px; 
-            background-color: #444; 
-        }
+.tarjeta-publicacion-inicio img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    background-color: #444;
+}
 
-        .tarjeta-publicacion-inicio h3 { 
-            font-size: 1.1em;
-            color: #ff9800; 
-            margin-top: 0;
-            margin-bottom: 8px;
-            min-height: 2.2em; /* Espacio para ~2 líneas de título */
-            overflow: hidden;
-        }
+.tarjeta-publicacion-inicio h3 {
+    font-size: 1.1em;
+    color: #ff9800;
+    margin-top: 0;
+    margin-bottom: 8px;
+    min-height: 2.2em;
+    overflow: hidden;
+}
 
-        .tarjeta-publicacion-inicio p {
-            font-size: 0.9em;
-            margin-bottom: 8px;
-            color: #ddd; 
-            line-height: 1.4;
-        }
-         .tarjeta-publicacion-inicio p.descripcion-publicacion {
-            flex-grow: 1; 
-            min-height: 4.2em; /* Espacio para ~3 líneas de descripción */
-            overflow: hidden;
-        }
+.tarjeta-publicacion-inicio p {
+    font-size: 0.9em;
+    margin-bottom: 8px;
+    color: #ddd;
+    line-height: 1.4;
+}
 
-        .tarjeta-publicacion-inicio .categoria { 
-            font-size: 0.8em;
-            font-style: italic;
-            color: #aaa;
-            margin-top: auto; 
-            align-self: flex-end; 
-        }
+.tarjeta-publicacion-inicio p.descripcion-publicacion {
+    flex-grow: 1;
+    min-height: 4.2em;
+    overflow: hidden;
+}
 
-        /* Estilos para el enlace que contendrá el botón fijo */
-        .enlace-crear-publicacion-fijo {
-            position: fixed;
-            bottom: 30px; /* Distancia desde abajo */
-            right: 40px;  /* Distancia desde la derecha (ajusta si el padding de .contenido es diferente) */
-            z-index: 1001; /* Asegura que esté por encima del contenido scrolleable */
-            text-decoration: none;
-        }
+.tarjeta-publicacion-inicio .categoria {
+    font-size: 0.8em;
+    font-style: italic;
+    color: #aaa;
+    margin-top: auto;
+    align-self: flex-end;
+}
 
-        .boton-nueva-publicacion {
-            /* margin-top: 30px; Ya no es necesario con position:fixed */
-            padding: 10px 20px; /* Un poco más de padding para mejor apariencia */
-            background-color: #ff9800; 
-            color: white;
-            border: none;
-            border-radius: 25px; /* Más redondeado para un look de FAB */
-            font-size: 1em;
-            font-weight: bold; /* Hacerlo más visible */
-            cursor: pointer;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.4); /* Sombra para destacar */
-            transition: background-color 0.2s ease-in-out, transform 0.15s ease-in-out;
-        }
+.enlace-crear-publicacion-fijo {
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+    z-index: 1001;
+    text-decoration: none;
+}
 
-        .boton-nueva-publicacion:hover {
-            background-color: #e68a00; 
-            transform: scale(1.03) translateY(-1px); /* Ligero efecto al pasar el ratón */
-        }
+.boton-nueva-publicacion {
+    padding: 10px 20px;
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+    transition: background-color 0.2s ease-in-out, transform 0.15s ease-in-out;
+}
+
+.boton-nueva-publicacion:hover {
+    background-color: #e68a00;
+    transform: scale(1.03) translateY(-1px);
+}

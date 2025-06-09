@@ -1,6 +1,3 @@
-/* configuracion.css */
-
-/* Reset y tipografías */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,14 +8,10 @@ body {
   background-color: #000;
   color: #e0e0e0;
 }
-
-/* Layout */
 .contenedor {
   display: flex;
   min-height: 100vh;
 }
-
-/* Sidebar */
 .barra-lateral {
   width: 250px;
   background: #343434;
@@ -57,8 +50,6 @@ body {
 .barra-lateral ul li a:hover {
   background: #3b3b3b;
 }
-
-/* Contenido principal */
 .contenido {
   margin-left: 250px;
   padding: 30px 40px;
@@ -72,8 +63,6 @@ body {
   border-bottom: 1px solid #555;
   padding-bottom: 10px;
 }
-
-/* Secciones */
 .contenedor-configuracion {
   display: flex;
   flex-direction: column;
@@ -104,10 +93,8 @@ body {
 .lista-opciones li a.texto-peligro:hover {
   color: #d32f2f;
 }
-
-/* Formularios dentro de la lista */
 .form-config {
-  display: none;            /* ocultos por defecto */
+  display: none;
   flex-direction: column;
   gap: 8px;
   margin-top: 8px;
