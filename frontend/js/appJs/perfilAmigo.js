@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const data = await res.json();
 
         // Muestra los datos del amigo en el perfil
-        avatarEl.src = data.avatarUrl;
+        avatarEl.src = 'https://placehold.co/100x100/888/FFF?text='+data.nombreUsuario  +'';
         nombreEl.textContent = data.nombreUsuario;
         bioEl.textContent = data.bio || 'Sin biografía';
 
