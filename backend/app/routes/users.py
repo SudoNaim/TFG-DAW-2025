@@ -12,10 +12,13 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 import traceback
 
+# Endpoint para conectar el registro
 @router.post("/register", response_model=UserOut)
 def register(user: UserCreate, db: Session = Depends(get_db)):
+    # logs para testeo
     print("🟢 Recibida solicitud de registro")
 
+    # validación de existencia y creación de los dígitos para el código de amigo
     try:
         existing = db.query(User).filter(User.email == user.email).first()
         if existing:
@@ -24,7 +27,7 @@ def register(user: UserCreate, db: Session = Depends(get_db)):
         hashed_password = pwd_context.hash(user.password)
         alfabeto = string.ascii_uppercase + string.digits
         while True:
-            # 6 caracteres aleatorios
+            # método para generar el dígito random
             code = "#" + "".join(random.choices(alfabeto, k=6))
             if not db.query(User).filter(User.friend_code == code).first():
                 break
@@ -39,10 +42,12 @@ def register(user: UserCreate, db: Session = Depends(get_db)):
 
     except Exception as e:
         print("🔥 ERROR DETECTADO:")
-        traceback.print_exc()  # ⬅️ Esto imprime TODO el error a la consola con línea exacta
+        traceback.print_exc()  # en caso de error, con esto imprimimos todo el proceso fallido
         raise HTTPException(status_code=500, detail="Error en el servidor")
 
+# Endpoint para conectar con el login
 @router.post("/login")
+# validación con la contraseña hasheada
 def login(credentials: UserLogin, db: Session = Depends(get_db)):
     user = db.query(User).filter(User.email == credentials.email).first()
 
@@ -51,6 +56,7 @@ def login(credentials: UserLogin, db: Session = Depends(get_db)):
 
     return {"message": "Login exitoso", "user_id": user.id}
 
+# Endpoint para visualizar el perfil de un usuario
 @router.get("/perfil/{user_id}")
 def obtener_perfil(user_id: int, db: Session = Depends(get_db)):
     print("✅ ENTRANDO A /perfil")
@@ -61,6 +67,7 @@ def obtener_perfil(user_id: int, db: Session = Depends(get_db)):
 
     publicaciones = db.query(Post).filter(Post.user_id == user_id).all()
 
+    # este es el esquema de pydantic que se devuelve, también con una serie de diccionarios que sirven como publicaciones individuales, cada una con sus datos correspondientes
     return {
         "idUsuario":     usuario.id,
         "nombreUsuario": usuario.username,
@@ -80,17 +87,19 @@ def obtener_perfil(user_id: int, db: Session = Depends(get_db)):
         ]
     }
 
+# Endpoint para actualizar biografía
 @router.put("/perfil/{user_id}/bio", response_model=UserOut)
 def actualizar_bio(user_id: int, bio_data: BioUpdate, db: Session = Depends(get_db)):
     usuario = db.query(User).filter(User.id == user_id).first()
     if not usuario:
         raise HTTPException(status_code=404, detail="Usuario no encontrado")
-    # Actualizamos y guardamos
+    # actualizamos y guardamos la nueva biografía
     usuario.bio = bio_data.bio
     db.commit()
     db.refresh(usuario)
     return usuario
 
+# Endpoint para cambiar la contraseña del usuario
 @router.put("/perfil/{user_id}/password")
 def cambiar_contrasena(user_id: int, pwd_data: PasswordUpdate, db: Session = Depends(get_db)):
     usuario = db.query(User).filter(User.id == user_id).first()
@@ -104,13 +113,14 @@ def cambiar_contrasena(user_id: int, pwd_data: PasswordUpdate, db: Session = Dep
     db.commit()
     return {"message": "Contraseña actualizada correctamente"}
 
+# Endpoint para cambiar el correo electrónico del usuario
 @router.put("/perfil/{user_id}/email")
 def cambiar_correo(user_id: int, data: EmailUpdate, db: Session = Depends(get_db)):
     usuario = db.query(User).filter(User.id == user_id).first()
     if not usuario:
         raise HTTPException(status_code=404, detail="Usuario no encontrado")
 
-    # Verificar que el nuevo email no esté ya registrado
+    # verificamos que el nuevo email no esté ya registrado
     existe = db.query(User).filter(User.email == data.email).first()
     if existe and existe.id != user_id:
         raise HTTPException(status_code=400, detail="El correo ya está en uso")

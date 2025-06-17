@@ -2,6 +2,7 @@ from pydantic import BaseModel, Field
 from typing import Literal
 from datetime import datetime
 
+# Creación de publicaciónes, al igual que visualización y devolución de datos según intereses de los casos de uso
 class PostCreate(BaseModel):
     titulo: str
     imagen_url: str | None = None

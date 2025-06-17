@@ -1,5 +1,6 @@
 from pydantic import BaseModel, EmailStr
 
+# Igual que anteriormente, esquemas necesarios para las funcionalidades relacionadas con el usuario
 class UserCreate(BaseModel):
     username: str
     email: str
@@ -8,7 +9,6 @@ class UserCreate(BaseModel):
 class PasswordUpdate(BaseModel):
     current_password: str
     new_password: str
-
 
 class BioUpdate(BaseModel):
     bio: str
@@ -27,5 +27,5 @@ class UserLogin(BaseModel):
     email: str
     password: str
 
-class EmailUpdate(BaseModel):              # ← nuevo
+class EmailUpdate(BaseModel):              
     email: EmailStr
